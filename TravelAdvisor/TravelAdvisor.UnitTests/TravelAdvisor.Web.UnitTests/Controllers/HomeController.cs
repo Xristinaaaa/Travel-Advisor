@@ -17,7 +17,7 @@ namespace TravelAdvisor.Web.UnitTests.Controllers
 			ViewResult result = controller.Index() as ViewResult;
 
 			// Assert
-			Assert.IsNotNull(null);
+			Assert.IsNotNull(result);
 		}
 
 		[TestMethod]
