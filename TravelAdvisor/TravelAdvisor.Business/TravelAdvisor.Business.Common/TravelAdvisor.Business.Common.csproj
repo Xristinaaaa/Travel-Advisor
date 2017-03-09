@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EECB37C0-433D-4BAE-B553-4BD5416928BC}</ProjectGuid>
+    <ProjectGuid>{AED5C36B-8D31-48E8-9282-E7FB58620A32}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TravelAdvisor.Common</RootNamespace>
-    <AssemblyName>TravelAdvisor.Common</AssemblyName>
+    <RootNamespace>TravelAdvisor.Business.Common</RootNamespace>
+    <AssemblyName>TravelAdvisor.Business.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
