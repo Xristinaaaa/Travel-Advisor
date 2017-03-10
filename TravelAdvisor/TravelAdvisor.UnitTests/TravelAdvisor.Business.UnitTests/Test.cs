@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace TravelAdvisor.Business.UnitTests
 {
-	[TestClass]
+	[TestFixture]
 	public class Test
 	{
-		[TestMethod]
+		[Test]
 		public void TestMethod1()
 		{
 			Assert.IsNull(null);
