@@ -1,24 +1,157 @@
-﻿body {
-    padding-top: 50px;
+﻿/* Navigation */
+#main-nav {
+    margin-bottom: 0;
+    border: none;
+    background: #4d505b;
+    position: absolute;
+    top: 0;
+    background: rgba(255,255,255, 0.8);
+}
+
+#main-nav li a {
+    color: #3fc3ee;
+    font-weight: bold;
+    padding: 25px 15px;
+}
+
+#main-nav .navbar-brand {
+    color: #3fc3ee;
+    font-weight: bold;
+    font-family: lobster;
+}
+
+#main-nav .navbar-brand img{
+    max-width: 35px;
+}
+
+.body-content .user-nav {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:focus {
+    background: #fff;
+}
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    background: #fff;
     padding-bottom: 20px;
+    font-family: 'Raleway', sans-serif;
 }
 
-/* Set padding to keep content from hitting the edges */
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+p {
+    font-family: 'Raleway', sans-serif;
+}
+
+footer {
+    float: left;
+    width: 100%;
+    position: relative;
+}
+
+footer .bottom {
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+footer .bottom {
+    float: left;
+    background: #222533;
+    border-top: 1px solid #282b39;
+    color: #fff;
+    padding: 30px 0;
+}
+
+footer .socials ul li{
+    float: left;
+    display: inline-block;
+    position: relative;
+}
+
+footer .socials ul li a {
+    padding: 10px;
+}
+
+main {
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0;
+    float: left;
+    position: relative;
+    width: 100%;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+/* Quick contact form */
+#quick-contact {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    z-index: 300;
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+#quick-contact > .quick-contact-btn {
+    display: block;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #ccc;
+    background-color: rgba(0,0,0,0.2);
+    padding: 12px 14px;
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
 }
+
+#quick-contact-form {
+    position: absolute;
+    width: 280px;
+    bottom: 70px;
+    right: 0;
+    -webkit-box-shadow: 0 0 50px 10px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 0 50px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 3px 13px 0 rgba(0,0,0,0.1);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e5e5e5;
+    border-radius: 4px;
+    padding: 20px;
+    z-index: 100;
+    display: none;
+    background-color: #f7f7f7;
+}
+
+/* Responsive */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+    .body-content {
+        /*padding: 0;*/
+    }
+}
+

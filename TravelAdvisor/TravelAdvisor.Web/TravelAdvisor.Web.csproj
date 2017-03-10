@@ -248,18 +248,65 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\External\Bootstrap\bootstrap.css" />
+    <Content Include="Content\External\Bootstrap\bootstrap.min.css" />
+    <Content Include="Content\External\FontAwesome\font-awesome.css" />
+    <Content Include="Content\External\FontAwesome\font-awesome.min.css" />
+    <Content Include="Content\External\RevSlider\extralayers.css" />
+    <Content Include="Content\External\RevSlider\settings.css" />
+    <Content Include="Content\External\RevSlider\style.css" />
+    <Content Include="Content\Fonts.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\FontAwesome\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\RevSlider\revicons.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Shared\logo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="fonts\FontAwesome\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome\fontawesome-webfont.ttf" />
+    <Content Include="fonts\FontAwesome\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome\FontAwesome.otf" />
+    <Content Include="fonts\Lobster\lobster-regular-webfont.ttf" />
+    <Content Include="fonts\Lobster\lobster-regular-webfont.woff" />
+    <Content Include="fonts\Lobster\lobster-regular-webfont.woff2" />
+    <Content Include="fonts\Raleway\raleway-black-webfont.ttf" />
+    <Content Include="fonts\Raleway\raleway-black-webfont.woff" />
+    <Content Include="fonts\Raleway\raleway-black-webfont.woff2" />
+    <Content Include="fonts\Raleway\raleway-bold-webfont.ttf" />
+    <Content Include="fonts\Raleway\raleway-bold-webfont.woff" />
+    <Content Include="fonts\Raleway\raleway-bold-webfont.woff2" />
+    <Content Include="fonts\Raleway\raleway-extralight-webfont.ttf" />
+    <Content Include="fonts\Raleway\raleway-extralight-webfont.woff" />
+    <Content Include="fonts\Raleway\raleway-extralight-webfont.woff2" />
+    <Content Include="fonts\Raleway\raleway-italic-webfont.ttf" />
+    <Content Include="fonts\Raleway\raleway-italic-webfont.woff" />
+    <Content Include="fonts\Raleway\raleway-italic-webfont.woff2" />
+    <Content Include="fonts\Raleway\raleway-light-webfont.ttf" />
+    <Content Include="fonts\Raleway\raleway-light-webfont.woff" />
+    <Content Include="fonts\Raleway\raleway-light-webfont.woff2" />
+    <Content Include="fonts\Raleway\raleway-medium-webfont.ttf" />
+    <Content Include="fonts\Raleway\raleway-medium-webfont.woff" />
+    <Content Include="fonts\Raleway\raleway-medium-webfont.woff2" />
+    <Content Include="fonts\Raleway\raleway-regular-webfont.ttf" />
+    <Content Include="fonts\Raleway\raleway-regular-webfont.woff" />
+    <Content Include="fonts\Raleway\raleway-regular-webfont.woff2" />
+    <Content Include="fonts\Raleway\raleway-semibold-webfont.ttf" />
+    <Content Include="fonts\Raleway\raleway-semibold-webfont.woff" />
+    <Content Include="fonts\Raleway\raleway-semibold-webfont.woff2" />
+    <Content Include="fonts\Raleway\raleway-thin-webfont.ttf" />
+    <Content Include="fonts\Raleway\raleway-thin-webfont.woff" />
+    <Content Include="fonts\Raleway\raleway-thin-webfont.woff2" />
+    <Content Include="fonts\RevSlider\revicons.eot" />
+    <Content Include="fonts\RevSlider\revicons.ttf" />
+    <Content Include="fonts\RevSlider\revicons.woff" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -272,6 +319,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Views\home.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -285,7 +333,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -314,6 +361,8 @@
     <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Images\Admin\" />
+    <Folder Include="Images\Errors\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -3,42 +3,95 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Travel Advisor</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
+	<div id="main-nav" class="navbar navbar-inverse navbar-fixed-top collapse navbar-collapse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="nav navbar-brand">
+					<img src="~/Images/Shared/logo.png" height="30" width="30" />
+					@Html.ActionLink("Travel Advisor", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+				</a>
+			</div>
+			<div class="navbar-collapse collapse navbar-right">
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li>
+							@Html.ActionLink("Home", "Index", "Home", new { @class = "fa fa-home"})
+						</li>
+						<li>@Html.ActionLink("About", "About", "Home")</li>
+					</ul>
+					@Html.Partial("_LoginPartial")
+				</div>
+			</div>
+		</div>
+	</div>
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+		<div id="quick-contact">
+			<a class="quick-contact-btn" href="#">
+				<i class="fa fa-envelope fa-2x"></i>
+			</a>
+			<div id="quick-contact-form">
+				<h4>CONTACT US</h4>
+				<form method="post">
+					<div class="form-group">
+						<input type="text" required="" name="f_names" class="form-control" placeholder="Your Name" />
+					</div>
+					<div class="form-group">
+						<input type="email" required="" name="f_email" class="form-control" placeholder="Your Email" />
+					</div>
+					<div class="form-group">
+						<textarea name="f_messag" class="form-control" placeholder="Your Message"></textarea>
+					</div>
+					<button class="btn btn-default pull-right" type="submit">Send</button>
+				</form>
+			</div>
+		</div>
+		<footer>
+			<div class="bottom">
+				<div class="container">
+					<div class="copyright pull-left">
+						Copyright 2017
+						|  All Rights Reserved
+					</div>
+					<div class="socials pull-right">
+						<ul>
+							<li class="facebook" data-toggle="tooltip" title="Facebook" data-placement="top">
+								<a href="#">
+									<i class="fa fa-facebook fa-2x"></i>
+								</a>
+							</li>
+							<li class="twitter" data-toggle="tooltip" title="Twitter" data-placement="top">
+								<a href="#">
+									<i class="fa fa-twitter fa-2x"></i>
+								</a>
+							</li>
+							<li class="linkedin" data-toggle="tooltip" title="Linked-in" data-placement="top">
+								<a href="#">
+									<i class="fa fa-linkedin fa-2x"></i>
+								</a>
+							</li>
+							<li class="rss" data-toggle="tooltip" title="RSS" data-placement="top">
+								<a href="#">
+									<i class="fa fa-rss fa-2x"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>        
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+	@Scripts.Render("~/Scripts/Views/home.js")
     @RenderSection("scripts", required: false)
 </body>
 </html>
