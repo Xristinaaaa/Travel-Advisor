@@ -26,7 +26,7 @@ namespace TravelAdvisor.Web
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 					  "~/Content/External/Bootstrap/bootstrap.css",
 					  "~/Content/External/FontAwesome/font-awesome.css",
-					  "~/Content/Site.css",
+					  "~/Content/site.css",
 					  "~/Content/Fonts.css"));
 		}
 	}

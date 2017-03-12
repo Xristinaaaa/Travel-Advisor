@@ -1,0 +1,17 @@
+﻿<div class="container">
+	<div class="navbar-header">
+		<a class="nav navbar-brand">
+			<img src="~/Images/logo.png" height="30" width="30" />
+			@Html.ActionLink("Travel Advisor", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+		</a>
+	</div>
+	<div class="navbar-collapse collapse navbar-right">
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li>@Html.ActionLink("Home", "Index", "Home")</li>
+				<li>@Html.ActionLink("About", "About", "Home")</li>
+			</ul>
+			@Html.Partial("_LoginPartial")
+		</div>
+	</div>
+</div>
