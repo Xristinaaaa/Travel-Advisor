@@ -8,16 +8,23 @@
     @Scripts.Render("~/bundles/modernizr")
 	@RenderSection("styles", required: false)
 </head>
-<body>
-	<div id="main-nav" class="navbar navbar-inverse navbar-fixed-top collapse navbar-collapse">
-		@Html.Partial("Navigation")
-	</div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-		@Html.Partial("ContactForm")
-		@Html.Partial("Footer")        
-    </div>
+<body data-spy="scroll" data-target="#main-nav" data-offset="70">
+	<header>
+		<div id="main-nav" class="navbar navbar-inverse navbar-fixed-top collapse navbar-collapse">
+			@Html.Partial("Navigation")
+		</div>
+	</header>
+	<main>
+		<div class="body-content">
+			@RenderBody()
+			<hr />
+		</div>
+	</main>
+	<footer>
+		@Html.Partial("Footer")
+	</footer>
+
+	@Html.Partial("ContactForm")
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

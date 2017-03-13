@@ -263,10 +263,9 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\logo.png" />
-    <Content Include="Images\Shared\activity.png" />
-    <Content Include="Images\Shared\paris.png" />
-    <Content Include="Images\Shared\summer.png" />
-    <Content Include="Images\Shared\sunset-plane.png" />
+    <Content Include="Images\Shared\footer.png" />
+    <Content Include="Images\Shared\header.png" />
+    <Content Include="Images\Shared\services.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -336,7 +335,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -361,6 +359,10 @@
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Shared\ContactForm.cshtml" />
     <Content Include="Views\Shared\Navigation.cshtml" />
+    <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\Home\Header.cshtml" />
+    <Content Include="Views\Home\PopularDestinations.cshtml" />
+    <Content Include="Views\Home\Testimonials.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

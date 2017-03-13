@@ -8,26 +8,22 @@
 #main-nav {
     margin-bottom: 0;
     border: none;
-    background: #4d505b;
     position: absolute;
     top: 0;
-    background: rgba(0,0,0,0.15);
+    background: rgba(0,0,0,0.1);
 }
 
 #main-nav li a {
-    color: #3fc3ee;
+    color: white;
     font-weight: bold;
     padding: 25px 15px;
 }
 
-#main-nav .navbar-brand {
-    color: #3fc3ee;
-    font-weight: bold;
+#main-nav .navbar-brand{
+    color: #A6D305;
     font-family: lobster;
-}
-
-#main-nav .navbar-brand img{
-    max-width: 35px;
+	padding: 25px 15px;
+	font-size: 25px;
 }
 
 /* Wrapping element */
@@ -53,7 +49,7 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
     background: #fff;
-    padding-bottom: 20px;
+	padding-bottom: 20px;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -68,6 +64,7 @@ p {
 }
 
 footer {
+	background-image: url("../Images/Shared/footer.png");
     float: left;
     width: 100%;
     position: relative;
@@ -81,20 +78,20 @@ footer .bottom {
 
 footer .bottom {
     float: left;
-    background: #222533;
     border-top: 1px solid #282b39;
     color: #fff;
     padding: 30px 0;
 }
 
-footer .socials ul li{
+footer .socials ul li {
     float: left;
     display: inline-block;
     position: relative;
 }
 
 footer .socials ul li a {
-    padding: 10px;
+	color: #fff;
+    padding: 15px;
 }
 
 /* Contact form */
@@ -112,11 +109,11 @@ footer .socials ul li a {
 
 #contact > .contact-btn {
     display: block;
+	color: #A6D305;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    background-color: #ccc;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.1);
     padding: 12px 14px;
     transition: all .2s ease-in-out;
     -webkit-transition: all .2s ease-in-out;
@@ -149,9 +146,6 @@ footer .socials ul li a {
 @media screen and (min-width: 768px) {
     .jumbotron {
         margin-top: 20px;
-    }
-    .body-content {
-        /*padding: 0;*/
     }
 }
 
