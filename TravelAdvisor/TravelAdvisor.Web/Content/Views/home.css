@@ -81,6 +81,11 @@ a.button-intro {
     min-width: 150px;
 }
 
+a.button-intro:hover {
+	background: transparent;
+	text-decoration: none;
+}
+
 /* Services */
 .services .services-list {
     float: left;
@@ -142,12 +147,37 @@ a.button-intro {
 	font-size: 15px;
 }
 
+.services-list .block-1-icon {
+    background: #EBECEE;
+    border-bottom: #97caeb 1px solid;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	color: white;
+    width: 110px;
+    height: 110px;
+    text-align: center;
+    margin: 0 auto 0 auto;
+    font-size: 60px;
+    line-height: 1em;
+    padding-top: 25px;
+    margin-bottom: 30px;
+}
+
+.services-list .block-1-icon:hover {
+	background: white;
+	color: #A6D305;
+}
 /* Destinations */
 
 /* Testimonials */
 .testimonials { 
     width: 100%;
 }
+
 .testimonials.parallax {
     background-image: url("../../Images/Shared/services.png");
     height: 400px;
@@ -156,14 +186,17 @@ a.button-intro {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .testimonials .section-title > h2 {
     color: #888;
 }
+
 .testimonials blockquote {
     border-right: 5px solid #eeeeee;
     background: #B7DB36;
     color: #fff;
 }
+
 .testimonials blockquote p{
 	padding: 10px 0;
     text-align: center;
