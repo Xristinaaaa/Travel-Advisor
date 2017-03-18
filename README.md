@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/3nhbbj2o27ws2ynj/branch/master?svg=true)](https://ci.appveyor.com/project/Xristinaaaa/travel-advisor/branch/master)
+
 [![Coverage Status](https://coveralls.io/repos/github/Xristinaaaa/Travel-Advisor/badge.svg?branch=master)](https://coveralls.io/github/Xristinaaaa/Travel-Advisor?branch=master)
 
 <p align="center">
