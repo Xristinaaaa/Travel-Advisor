@@ -6,10 +6,8 @@
 
 /* Navigation */
 #main-nav {
-    margin-bottom: 0;
     border: none;
     position: absolute;
-    top: 0;
     background: rgba(0,0,0,0.1);
 }
 
@@ -19,14 +17,29 @@
     padding: 25px 15px;
 }
 
-#main-nav .navbar-brand{
+#main-nav li a:hover {
+	color: #e0f595;
+}
+
+#main-nav .navbar-brand {
     color: #A6D305;
     font-family: lobster;
 	padding: 25px 15px;
 	font-size: 25px;
 }
 
-/* Wrapping element */
+#main-nav .dropdown-menu {
+    background: rgba(0,0,0,0.1);
+    position: absolute;
+    left: 0;
+    float: left;
+	display: none;
+}
+
+.dropdown-toggle a:hover .dropdown-menu {
+	display: block;
+}
+
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
     padding: 0;
@@ -63,6 +76,7 @@ p {
     font-family: 'Raleway', sans-serif;
 }
 
+/* Footer */
 footer {
 	background-image: url("../Images/Shared/footer.png");
     float: left;
@@ -98,7 +112,7 @@ footer .socials ul li a {
 #contact {
     position: fixed;
     right: 20px;
-    bottom: 50px;
+    bottom: 20px;
     z-index: 300;
     transition: all .2s ease-in-out;
     -webkit-transition: all .2s ease-in-out;
@@ -120,6 +134,10 @@ footer .socials ul li a {
     -moz-transition: all .2s ease-in-out;
     -ms-transition: all .2s ease-in-out;
     -o-transition: all .2s ease-in-out;
+}
+
+#contact > .contact-btn:hover {
+	background: transparent;
 }
 
 #contact-form {

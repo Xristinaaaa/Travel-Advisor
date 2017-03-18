@@ -30,13 +30,13 @@
 
 /* Header */
 .parallax-window {
-	background-image: url("../../Images/Shared/header.png");
+	background-image: url("../../../Images/Shared/header.png");
 }
 
 .parallax-content-1 {
     display: table;
     width: 100%;
-    height: 470px;
+    height: 550px;
 }
 
 .parallax-content-1 > div {
@@ -86,6 +86,30 @@ a.button-intro:hover {
 	text-decoration: none;
 }
 
+/* Angle up*/
+.toTop {
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+    color: #fff;
+    background: #c1e443;
+    position: fixed;
+	display: block;
+    right: 35px;
+    bottom: 90px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.toTop:hover {
+	color: #A6D305;
+	font-weight:bold;
+    background: transparent;
+}
+
 /* Services */
 .services .services-list {
     float: left;
@@ -97,8 +121,8 @@ a.button-intro:hover {
     text-align: center;
     font-family: lobster;
     font-size: 24px;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
     border-bottom: 1px solid #10b4ea;
 }
 
@@ -108,15 +132,15 @@ a.button-intro:hover {
     width: 100%;
 }
 
-.services .services-list > div > .row > ul > li a{
+.services .services-list > div > .row > ul > li a {
     display: block;
     float: left;
     position: relative;
 	margin-bottom: 20px;
 }
 
-.services .services-list > div > .row > ul > li a:before{
-    background: rgba(34,37,51,0.50);
+.services .services-list > div > .row > ul > li a:before {
+    background: rgba(34,37,51,0.50); 
     content: "";
     position: absolute;
     width: 100%;
@@ -171,6 +195,7 @@ a.button-intro:hover {
 	background: white;
 	color: #A6D305;
 }
+
 /* Destinations */
 
 /* Testimonials */
@@ -179,7 +204,7 @@ a.button-intro:hover {
 }
 
 .testimonials.parallax {
-    background-image: url("../../Images/Shared/services.png");
+    background-image: url("../../../Images/Shared/services.png");
     height: 400px;
     background-attachment: fixed;
     background-position: center;

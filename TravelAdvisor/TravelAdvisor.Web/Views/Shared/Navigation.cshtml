@@ -15,18 +15,30 @@
 			<ul class="nav navbar-nav">
 				<li>@Html.ActionLink("Home", "Index", "Home")</li>
 				<li>@Html.ActionLink("Sevices", "", "")</li>
+				<li>@Html.ActionLink("Destinations", "", "")</li>
+				<li>@Html.ActionLink("Testimonials", "", "")</li>
 
 				@if (Request.IsAuthenticated)
 				{
-					<li>@Html.ActionLink("Cruises", "Index", "Home")</li>
-					<li>@Html.ActionLink("Trips", "Index", "Home")</li>
-					<li>@Html.ActionLink("Rent a car", "Index", "Home")</li>
-					<li>@Html.ActionLink("Flights", "Index", "Home")</li>
+					<li class="dropdown-toggle">
+						@Html.ActionLink("Tours", "", "")
+						<ul class="dropdown-menu">
+							<li>@Html.ActionLink("Cruises", "Index", "Home")</li>
+							<li>@Html.ActionLink("Trips", "Index", "Home")</li>
+						</ul>
+					</li>
+					<li class="dropdown-toggle">
+						@Html.ActionLink("Booking", "", "")
+						<ul class="dropdown-menu">
+							<li>@Html.ActionLink("Rent a car", "", "")</li>
+							<li>@Html.ActionLink("Flights", "", "")</li>
+						</ul>
+					</li>
 				}
 
 				@if (User.IsInRole("Admin"))
 				{
-
+					<li>@Html.ActionLink("Administration", "", "")</li>
 				}
 			</ul>
 			@Html.Partial("_LoginPartial")
