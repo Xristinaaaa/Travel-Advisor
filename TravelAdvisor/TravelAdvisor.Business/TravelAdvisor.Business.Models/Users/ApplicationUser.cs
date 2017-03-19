@@ -17,6 +17,7 @@ namespace TravelAdvisor.Business.Models.Users
 		[MaxLength(ValidationConstants.NameMaxLength)]
 		public string LastName { get; set; }
 
+		[Range(ValidationConstants.MinAge, ValidationConstants.MaxAge)]
 		public int Age { get; set; }
 
 		public string AvatarUrl { get; set; }

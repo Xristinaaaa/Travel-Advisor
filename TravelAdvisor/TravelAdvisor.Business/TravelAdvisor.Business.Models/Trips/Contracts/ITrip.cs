@@ -23,6 +23,8 @@ namespace TravelAdvisor.Business.Models.Trips.Contracts
 
 		DateTime EndDate { get; set; }
 
+		int FreePlaces { get; set; }
+
 		bool IsDeleted { get; set; }
 	}
 }

@@ -26,9 +26,13 @@ namespace TravelAdvisor.Business.Data
 
 		public virtual DbSet<Cruise> Cruises { get; set; }
 
+		public virtual DbSet<Car> Car { get; set; }
+
 		public virtual DbSet<CarRental> CarRentals { get; set; }
 
-		public virtual DbSet<Flight> Flights { get; set; }
+		public virtual DbSet<FlightRequest> FlightRequests { get; set; }
+
+		public virtual DbSet<Message> Messages { get; set; }
 
 		public static TravelAdvisorDbContext Create()
 		{

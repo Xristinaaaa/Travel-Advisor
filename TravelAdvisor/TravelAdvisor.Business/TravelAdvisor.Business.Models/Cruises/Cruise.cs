@@ -1,8 +1,9 @@
 ﻿using System;
+using TravelAdvisor.Business.Models.Cruises.Contracts;
 
 namespace TravelAdvisor.Business.Models.Cruises
 {
-	public class Cruise
+	public class Cruise : ICruise
 	{
 		public int Id { get; set; }
 
@@ -21,6 +22,8 @@ namespace TravelAdvisor.Business.Models.Cruises
 		public DateTime StartDate { get; set; }
 
 		public DateTime EndDate { get; set; }
+
+		public int FreePlaces { get; set; }
 
 		public bool IsDeleted { get; set; }
 	}

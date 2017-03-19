@@ -89,9 +89,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Booking\Contracts\IFlight.cs" />
+    <Compile Include="Booking\Car.cs" />
+    <Compile Include="Booking\Contracts\ICar.cs" />
+    <Compile Include="Booking\Contracts\IFlightRequest.cs" />
+    <Compile Include="Booking\Contracts\IMessage.cs" />
+    <Compile Include="Booking\Message.cs" />
     <Compile Include="Booking\TravelClass.cs" />
-    <Compile Include="Booking\Flight.cs" />
+    <Compile Include="Booking\FlightRequest.cs" />
     <Compile Include="Cruises\Contracts\ICruise.cs" />
     <Compile Include="Cruises\Cruise.cs" />
     <Compile Include="Destinations\Destination.cs" />

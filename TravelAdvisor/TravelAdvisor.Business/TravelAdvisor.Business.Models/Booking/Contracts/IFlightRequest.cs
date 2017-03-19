@@ -1,8 +1,9 @@
 ﻿using System;
+using TravelAdvisor.Business.Models.Users;
 
 namespace TravelAdvisor.Business.Models.Booking.Contracts
 {
-	public interface IFlight
+	public interface IFlightRequest
 	{
 		int Id { get; set; }
 
@@ -17,6 +18,10 @@ namespace TravelAdvisor.Business.Models.Booking.Contracts
 		int PeopleCount { get; set; }
 
 		TravelClass TravelClass { get; set; }
+
+		int UserId { get; set; }
+
+		RegularUser User { get; set; }
 
 		bool IsDeleted { get; set; }
 	}

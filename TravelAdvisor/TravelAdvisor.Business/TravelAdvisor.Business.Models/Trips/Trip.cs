@@ -24,6 +24,8 @@ namespace TravelAdvisor.Business.Models.Trips
 
 		public DateTime EndDate { get; set; }
 
+		public int FreePlaces { get; set; }
+
 		public bool IsDeleted { get; set; }
 	}
 }

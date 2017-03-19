@@ -22,6 +22,8 @@ namespace TravelAdvisor.Business.Models.Cruises.Contracts
 
 		DateTime EndDate { get; set; }
 
+		int FreePlaces { get; set; }
+
 		bool IsDeleted { get; set; }
 	}
 }
