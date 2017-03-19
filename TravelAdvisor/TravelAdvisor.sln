@@ -19,9 +19,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAdvisor.Business.Mode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAdvisor.Business.Data", "TravelAdvisor.Business\TravelAdvisor.Business.Data\TravelAdvisor.Business.Data.csproj", "{5F8119A0-0448-4BA4-A7FE-910464478BB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAdvisor.Business.Identity", "TravelAdvisor.Business.Identity\TravelAdvisor.Business.Identity.csproj", "{BBA333F1-1444-4A51-B2CC-8E975AB89C87}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAdvisor.Business.Identity", "TravelAdvisor.Business\TravelAdvisor.Business.Identity\TravelAdvisor.Business.Identity.csproj", "{81A6D471-ED28-4642-AD38-7C37650050A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAdvisor.Business.Common", "TravelAdvisor.Business.Common\TravelAdvisor.Business.Common.csproj", "{FA71F729-E20C-487F-BCA4-953E9C464CFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAdvisor.Business.Common", "TravelAdvisor.Business\TravelAdvisor.Business.Common\TravelAdvisor.Business.Common.csproj", "{2EF71E2E-B000-4125-87A1-EE4B7A1CCC85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,14 +53,14 @@ Global
 		{5F8119A0-0448-4BA4-A7FE-910464478BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F8119A0-0448-4BA4-A7FE-910464478BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F8119A0-0448-4BA4-A7FE-910464478BB0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BBA333F1-1444-4A51-B2CC-8E975AB89C87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BBA333F1-1444-4A51-B2CC-8E975AB89C87}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BBA333F1-1444-4A51-B2CC-8E975AB89C87}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BBA333F1-1444-4A51-B2CC-8E975AB89C87}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FA71F729-E20C-487F-BCA4-953E9C464CFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FA71F729-E20C-487F-BCA4-953E9C464CFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FA71F729-E20C-487F-BCA4-953E9C464CFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FA71F729-E20C-487F-BCA4-953E9C464CFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81A6D471-ED28-4642-AD38-7C37650050A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81A6D471-ED28-4642-AD38-7C37650050A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81A6D471-ED28-4642-AD38-7C37650050A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81A6D471-ED28-4642-AD38-7C37650050A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EF71E2E-B000-4125-87A1-EE4B7A1CCC85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EF71E2E-B000-4125-87A1-EE4B7A1CCC85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EF71E2E-B000-4125-87A1-EE4B7A1CCC85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EF71E2E-B000-4125-87A1-EE4B7A1CCC85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,7 +71,7 @@ Global
 		{1C491882-D9A4-4C99-A9D8-42CAD7254E16} = {8AB1EBC7-BD32-4296-8BE6-6EBCFD25C4B7}
 		{10D2CF0E-4C50-401C-B314-DEB8C6F605C5} = {8AB1EBC7-BD32-4296-8BE6-6EBCFD25C4B7}
 		{5F8119A0-0448-4BA4-A7FE-910464478BB0} = {8AB1EBC7-BD32-4296-8BE6-6EBCFD25C4B7}
-		{BBA333F1-1444-4A51-B2CC-8E975AB89C87} = {8AB1EBC7-BD32-4296-8BE6-6EBCFD25C4B7}
-		{FA71F729-E20C-487F-BCA4-953E9C464CFD} = {8AB1EBC7-BD32-4296-8BE6-6EBCFD25C4B7}
+		{81A6D471-ED28-4642-AD38-7C37650050A8} = {8AB1EBC7-BD32-4296-8BE6-6EBCFD25C4B7}
+		{2EF71E2E-B000-4125-87A1-EE4B7A1CCC85} = {8AB1EBC7-BD32-4296-8BE6-6EBCFD25C4B7}
 	EndGlobalSection
 EndGlobal

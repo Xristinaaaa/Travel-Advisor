@@ -111,10 +111,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\..\TravelAdvisor.Business.Common\TravelAdvisor.Business.Common.csproj">
-      <Project>{fa71f729-e20c-487f-bca4-953e9c464cfd}</Project>
+    <ProjectReference Include="..\TravelAdvisor.Business.Common\TravelAdvisor.Business.Common.csproj">
+      <Project>{2ef71e2e-b000-4125-87a1-ee4b7a1ccc85}</Project>
       <Name>TravelAdvisor.Business.Common</Name>
     </ProjectReference>
   </ItemGroup>

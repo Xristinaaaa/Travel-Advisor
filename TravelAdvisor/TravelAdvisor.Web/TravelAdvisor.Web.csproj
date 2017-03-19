@@ -387,13 +387,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TravelAdvisor.Business.Identity\TravelAdvisor.Business.Identity.csproj">
-      <Project>{bba333f1-1444-4a51-b2cc-8e975ab89c87}</Project>
-      <Name>TravelAdvisor.Business.Identity</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TravelAdvisor.Business\TravelAdvisor.Business.Data\TravelAdvisor.Business.Data.csproj">
       <Project>{5f8119a0-0448-4ba4-a7fe-910464478bb0}</Project>
       <Name>TravelAdvisor.Business.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TravelAdvisor.Business\TravelAdvisor.Business.Identity\TravelAdvisor.Business.Identity.csproj">
+      <Project>{81a6d471-ed28-4642-ad38-7c37650050a8}</Project>
+      <Name>TravelAdvisor.Business.Identity</Name>
     </ProjectReference>
     <ProjectReference Include="..\TravelAdvisor.Business\TravelAdvisor.Business.Models\TravelAdvisor.Business.Models.csproj">
       <Project>{10d2cf0e-4c50-401c-b314-deb8c6f605c5}</Project>
