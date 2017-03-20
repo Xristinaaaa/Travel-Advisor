@@ -19,7 +19,9 @@
 
 #main-nav li a:hover {
 	color: #e0f595;
+	background: none;
 }
+
 
 #main-nav .navbar-brand {
     color: #A6D305;
@@ -28,7 +30,7 @@
 	font-size: 25px;
 }
 
-#main-nav .dropdown-menu {
+.dropdown-menu {
     background: rgba(0,0,0,0.1);
     position: absolute;
     left: 0;
@@ -36,9 +38,10 @@
 	display: none;
 }
 
-.dropdown-toggle a:hover .dropdown-menu {
+.dropdown-toggle:hover .dropdown-menu {
 	display: block;
 }
+
 
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -112,7 +115,7 @@ footer .socials ul li a {
 #contact {
     position: fixed;
     right: 20px;
-    bottom: 20px;
+    bottom: 15px;
     z-index: 300;
     transition: all .2s ease-in-out;
     -webkit-transition: all .2s ease-in-out;

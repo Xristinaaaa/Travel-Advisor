@@ -1,24 +1,25 @@
-﻿using System.Data.Entity;
+﻿using System.Reflection;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using TravelAdvisor.Business.Data;
-using TravelAdvisor.Business.Data.Migrations;
+using TravelAdvisor.Web.App_Start;
+using TravelAdvisor.Web.App_Start.AutoMapper;
 
 namespace TravelAdvisor.Web
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
+			DatabaseConfig.Config();
+			ViewEnginesConfig.RegisterViewEngines();
+			AutoMapperConfig.Config(Assembly.GetExecutingAssembly());
+
+			AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-			ViewEnginesConfig.RegisterViewEngines();
-
-			// Initialize database
-			Database.SetInitializer(new MigrateDatabaseToLatestVersion<TravelAdvisorDbContext, Configuration>());
 		}
     }
 }

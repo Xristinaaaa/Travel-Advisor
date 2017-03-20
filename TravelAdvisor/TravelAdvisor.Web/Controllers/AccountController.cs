@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TravelAdvisor.Business.Identity;
 using TravelAdvisor.Business.Models.Users;
-using TravelAdvisor.Web.Models;
+using TravelAdvisor.Web.Models.Account;
 
 namespace TravelAdvisor.Web.Controllers
 {

@@ -5,10 +5,10 @@ using Ninject;
 using Ninject.Web.Common;
 using TravelAdvisor.Web.App_Start.NinjectBindings;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(TravelAdvisor.Web.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(TravelAdvisor.Web.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(TravelAdvisor.Web.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(TravelAdvisor.Web.NinjectWebCommon), "Stop")]
 
-namespace TravelAdvisor.Web.App_Start
+namespace TravelAdvisor.Web
 {
 	public static class NinjectWebCommon 
     {

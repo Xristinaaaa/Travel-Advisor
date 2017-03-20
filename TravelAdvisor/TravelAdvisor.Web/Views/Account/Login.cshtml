@@ -1,4 +1,4 @@
-﻿@using TravelAdvisor.Web.Models
+﻿@using TravelAdvisor.Web.Models.Account
 @model LoginViewModel
 @{
     ViewBag.Title = "Log in";
@@ -9,7 +9,7 @@
 }
 
 <section id="login" class="col-md-4">
-    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
     {
         @Html.AntiForgeryToken()
 		<div class="form-box col-md-12">
@@ -49,9 +49,6 @@
 						<input type="submit" value="Log in" class="btn btn-signin" />
 					</div>
 				</div>
-				<p>
-					@Html.ActionLink("Register as a new user", "Register")
-				</p>
 				@* Enable this once you have account confirmation enabled for password reset functionality
 				<p>
 					@Html.ActionLink("Forgot your password?", "ForgotPassword")
