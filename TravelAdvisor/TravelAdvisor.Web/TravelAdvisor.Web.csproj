@@ -283,11 +283,11 @@
   <ItemGroup>
     <Content Include="Content\External\Bootstrap\bootstrap.css" />
     <Content Include="Content\External\Bootstrap\bootstrap.min.css" />
-    <Content Include="Content\External\FontAwesome\font-awesome.css" />
-    <Content Include="Content\External\FontAwesome\font-awesome.min.css" />
     <Content Include="Content\External\RevSlider\extralayers.css" />
     <Content Include="Content\External\RevSlider\settings.css" />
     <Content Include="Content\External\RevSlider\style.css" />
+    <Content Include="Content\External\FontAwesome\font-awesome.css" />
+    <Content Include="Content\External\FontAwesome\font-awesome.min.css" />
     <Content Include="Content\Fonts.css" />
     <Content Include="Content\Views\Account\register.css" />
     <Content Include="Content\Views\Home\destinations.css" />
@@ -304,6 +304,7 @@
     <Content Include="Images\logo.png" />
     <Content Include="Images\Shared\footer.png" />
     <Content Include="Images\Shared\headerBackground.png" />
+    <Content Include="Images\Shared\post-37.jpg" />
     <Content Include="Images\Shared\services.png" />
     <Content Include="Images\Shared\sign.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -311,11 +312,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="fonts\FontAwesome\fontawesome-webfont.eot" />
-    <Content Include="fonts\FontAwesome\fontawesome-webfont.ttf" />
-    <Content Include="fonts\FontAwesome\fontawesome-webfont.woff" />
-    <Content Include="fonts\FontAwesome\fontawesome-webfont.woff2" />
-    <Content Include="fonts\FontAwesome\FontAwesome.otf" />
     <Content Include="fonts\Lobster\lobster-regular-webfont.ttf" />
     <Content Include="fonts\Lobster\lobster-regular-webfont.woff" />
     <Content Include="fonts\Lobster\lobster-regular-webfont.woff2" />
@@ -350,6 +346,11 @@
     <Content Include="fonts\RevSlider\revicons.ttf" />
     <Content Include="fonts\RevSlider\revicons.woff" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="fonts\FontAwesome\FontAwesome.otf" />
+    <Content Include="fonts\FontAwesome\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome\fontawesome-webfont.ttf" />
+    <Content Include="fonts\FontAwesome\fontawesome-webfont.eot" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
