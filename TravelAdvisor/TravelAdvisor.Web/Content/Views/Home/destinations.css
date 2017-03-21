@@ -8,13 +8,13 @@
 	margin-top: 50px;
 }
 
-.center-block {
+thumbnail-variant-4 .center-block {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.img-responsive {
+thumbnail-variant-4 .img-responsive {
     display: block;
     max-width: 100%;
     height: auto;
@@ -23,6 +23,8 @@
 .thumbnail-variant-4 {
     display: block;
     position: relative;
+	float: left;
+	width: 100%;
     overflow: hidden;
     background-color: #1f2746;
     max-height: 240px;
@@ -42,11 +44,6 @@
     font-size: 24px;
 }
 
-.thumbnail-variant-4 img {
-    width: 100%;
-    transition: .4s;
-}
-
 .thumbnail-variant-4 .caption p {
     margin-top: 10px;
     margin-bottom: 8px;
@@ -57,23 +54,32 @@
     opacity: 0;
 }
 
+destinations-load-more {	
+	position:relative;
+	float:left;
+	margin: 0 auto;
+	width: 100%;
+}
+
 .prism-button {
-    width: 300px;
+	position:relative;
+	float:left;
+    width: 263px;
     height: 60px;
     cursor: pointer;
     perspective: 500px;
     -webkit-perspective: 500px;
     box-sizing: border-box;
-    border: 3px solid #10b4ea;
+	background: transparent;
+    border: 3px solid #A6D305;
     font-family: 'raleway-regular',sans-serif;
-    line-height: 50px;
-    font-size: 11pt;
+    font-size: 13pt;
     text-align: center;
     text-transform: uppercase;
 }
 
 .prism-button > span:nth-child(1) {
-  color: #10b4ea;
+  color: #A6D305;
   transform: translate3d(0, 0, 30px);
   -webkit-transform: translate3d(0, 0, 30px);
 }
