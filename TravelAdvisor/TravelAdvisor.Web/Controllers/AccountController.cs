@@ -2,11 +2,15 @@
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Expressions;
+using Bytes2you.Validation;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TravelAdvisor.Business.Identity;
 using TravelAdvisor.Business.Models.Users;
+using TravelAdvisor.Business.Services.Data;
+using TravelAdvisor.Business.Services.Data.Contracts;
 using TravelAdvisor.Web.Models.Account;
 
 namespace TravelAdvisor.Web.Controllers
@@ -16,15 +20,13 @@ namespace TravelAdvisor.Web.Controllers
     {
         private ApplicationSignInManager signInManager;
         private ApplicationUserManager userManager;
+		private IRegistrationService registrationService;		
 
-        public AccountController()
+		public AccountController(IRegistrationService registrationService)
         {
-        }
+			Guard.WhenArgument(registrationService, "registrationService").IsNull().Throw();
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
-        {
-            this.UserManager = userManager;
-            this.SignInManager = signInManager;
+			this.registrationService = registrationService;
         }
 
         public ApplicationSignInManager SignInManager
@@ -51,8 +53,8 @@ namespace TravelAdvisor.Web.Controllers
             }
         }
 		
-        // GET: /Account/Login
-        [AllowAnonymous]
+		// GET: /Account/Login
+		[AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -103,22 +105,37 @@ namespace TravelAdvisor.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
+				if (model.UserRole == null)
+				{
+					model.UserRole = "RegularUser";
+				}
 
-                if (result.Succeeded)
+				ApplicationUser user = this.registrationService.CreateApplicationUser(model.Email);
+                var createResult = await UserManager.CreateAsync(user, model.Password);
+				var addToRoleResult = await UserManager.AddToRoleAsync(user.Id, model.UserRole);
+
+                if (createResult.Succeeded && addToRoleResult.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+					if (model.UserRole == "RegularUser")
+					{
+						this.registrationService.CreateRegularUser(user.Id);
+					}
+					else if (model.UserRole == "Admin")
+					{
+						this.registrationService.CreateAdmin(user.Id);
+					}
 
-                    return RedirectToAction("Index", "Home");
+					await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
+					// For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+					// Send an email with this link
+					// string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+					// var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+					// await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+					return this.RedirectToAction<HomeController>(c => c.Index());
                 }
-                AddErrors(result);
+                AddErrors(createResult);
             }
 
             // If we got this far, something failed, redisplay form
@@ -198,13 +215,13 @@ namespace TravelAdvisor.Web.Controllers
             var user = await UserManager.FindByNameAsync(model.Email);
             if (user == null)
             {
-                // Don't reveal that the user does not exist
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+				// Don't reveal that the user does not exist
+				return this.RedirectToAction<AccountController>(c => c.ResetPasswordConfirmation());
             }
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+				return this.RedirectToAction<AccountController>(c => c.ResetPasswordConfirmation());
             }
             AddErrors(result);
             return View();
@@ -234,7 +251,7 @@ namespace TravelAdvisor.Web.Controllers
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
             if (loginInfo == null)
             {
-                return RedirectToAction("Login");
+				return this.RedirectToAction<AccountController>(c => c.Login(returnUrl));
             }
 
             // Sign in the user with this external login provider if the user already has a login
@@ -263,8 +280,8 @@ namespace TravelAdvisor.Web.Controllers
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
             if (User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Index", "Manage");
+			{
+				return RedirectToAction("Index", "Manage");
             }
 
             if (ModelState.IsValid)
@@ -283,7 +300,7 @@ namespace TravelAdvisor.Web.Controllers
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                        return RedirectToLocal(returnUrl);
+						return this.RedirectToLocal(returnUrl);
                     }
                 }
                 AddErrors(result);
@@ -299,7 +316,7 @@ namespace TravelAdvisor.Web.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+			return this.RedirectToAction<HomeController>(c => c.Index());
         }
 		
         // GET: /Account/ExternalLoginFailure
@@ -355,7 +372,7 @@ namespace TravelAdvisor.Web.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+			return this.RedirectToAction<HomeController>(c => c.Index());
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

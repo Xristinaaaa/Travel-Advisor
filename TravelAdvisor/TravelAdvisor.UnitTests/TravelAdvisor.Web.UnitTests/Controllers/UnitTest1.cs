@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace TravelAdvisor.Web.UnitTests.Controllers
 {
-	[TestClass]
+	[TestFixture]
 	public class UnitTest1
 	{
-		[TestMethod]
+		[Test]
 		public void TestMethod1()
 		{
 			Assert.AreEqual(true, true);

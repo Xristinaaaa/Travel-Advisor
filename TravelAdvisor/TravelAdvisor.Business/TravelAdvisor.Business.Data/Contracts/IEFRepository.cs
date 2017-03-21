@@ -12,8 +12,6 @@ namespace TravelAdvisor.Business.Data.Contracts
 
 		T GetById(object id);
 
-		T GetFirst(Expression<Func<T, bool>> filter);
-
 		void Add(T entity);
 
 		void Update(T entity);

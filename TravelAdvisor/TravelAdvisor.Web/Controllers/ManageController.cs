@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Expressions;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -95,7 +96,7 @@ namespace TravelAdvisor.Web.Controllers
             {
                 message = ManageMessageId.Error;
             }
-            return RedirectToAction("ManageLogins", new { Message = message });
+            return this.RedirectToAction<ManageController>(c => c.ManageLogins(message));
         }
 		
         // POST: /Manage/EnableTwoFactorAuthentication
@@ -123,7 +124,7 @@ namespace TravelAdvisor.Web.Controllers
             {
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
             }
-            return RedirectToAction("Index", "Manage");
+			return RedirectToAction("Index", "Manage");
         }
 
         // GET: /Manage/ChangePassword
@@ -149,7 +150,7 @@ namespace TravelAdvisor.Web.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                return this.RedirectToAction<ManageController>(c=>c.Index(ManageMessageId.ChangePasswordSuccess));
             }
             AddErrors(result);
             return View(model);
@@ -176,7 +177,7 @@ namespace TravelAdvisor.Web.Controllers
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     }
-                    return RedirectToAction("Index", new { Message = ManageMessageId.SetPasswordSuccess });
+					return this.RedirectToAction<ManageController>(c => c.Index(ManageMessageId.SetPasswordSuccess));
                 }
                 AddErrors(result);
             }

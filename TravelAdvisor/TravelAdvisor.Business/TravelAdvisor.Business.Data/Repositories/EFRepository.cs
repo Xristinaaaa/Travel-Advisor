@@ -54,12 +54,6 @@ namespace TravelAdvisor.Business.Data.Repositories
             return this.dbSet.Find(id);
         }
 
-        public T GetFirst(Expression<Func<T, bool>> filter)
-        {
-            var foundEntity = this.DbSet.FirstOrDefault(filter);
-            return foundEntity;
-        }
-
         public virtual void Add(T entity)
         {
             Guard.WhenArgument(entity, "Entity cannot be null!").IsNull().Throw();

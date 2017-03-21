@@ -6,9 +6,21 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right .user-nav">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
+		@if (!User.IsInRole("Admin"))
+		{
+			<li>
+				@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+			</li>
+		}
+		else
+		{
+			<li class="dropdown-toggle">
+				@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+				<ul class="dropdown-menu" role="menu">
+					<li>@Html.ActionLink("Administration", "", "")</li>
+				</ul>
+			</li>
+		}
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
     }
