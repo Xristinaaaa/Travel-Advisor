@@ -2,31 +2,34 @@
 	 new AjaxOptions
 	 {
 		 HttpMethod = "POST",
-		 UpdateTargetId = "container",
+		 UpdateTargetId = "destinations",
 		 InsertionMode = InsertionMode.Replace
 	 }))
 {
-<div id="container" class="container">
+<div id="destinations" class="container">
 	<div class="destinations-main-page generic-section">
 		<div class="destinations-content section-title">
 			<h2>Popular destinations</h2>
-			<div class="row">
-				@foreach (var item in Model.Destinations)
-				{
-					<div class="col-md-4 fader">
-						<a href="" class="thumbnail">
-							<img src="@Url.Content(item.ImageUrl)" alt="" class="img-responsive center-block thumbnail-image">
-							<div class="caption text-center">
-								<h3>@item.Country</h3>
-								<p>The cultural, commercial, and financial center of Northern California.</p>
-							</div>
-						</a>
-					</div>
-				}
-			</div>
-			<div class="col-md-offset-4 destinations-load-more">
-				<input class="col-md-offset-1 prism-button prism-wrap" type="submit" value="SHOW MORE"/>
-			</div>
+			@if (Model != null)
+			{
+				<div class="row">
+					@foreach (var item in Model.Destinations)
+					{
+						<div class="col-md-4 fader">
+							<a href="" class="thumbnail">
+								<img src="@Url.Content(item.ImageUrl)" alt="" class="img-responsive center-block thumbnail-image">
+								<div class="caption text-center">
+									<h3>@item.Country</h3>
+									<p>@item.Description</p>
+								</div>
+							</a>
+						</div>
+					}
+				</div>
+				<div class="col-md-offset-4 destinations-load-more">
+					<input class="col-md-offset-1 prism-button prism-wrap" type="submit" value="SHOW MORE"/>
+				</div>
+			}
 		</div>
 	</div>
 </div>

@@ -17,7 +17,7 @@
 			<li class="dropdown-toggle">
 				@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
 				<ul class="dropdown-menu" role="menu">
-					<li>@Html.ActionLink("Administration", "", "")</li>
+					<li>@Html.ActionLink("Administration", "Index", "Administration", new { area = "Admin" } )</li>
 				</ul>
 			</li>
 		}

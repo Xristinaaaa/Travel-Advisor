@@ -3,9 +3,9 @@
 /* Scroll for navigation */
 jQuery(function () {
 	jQuery('a.page-scroll').bind('click', function (event) {
-		var $anchor = $(this);
+		var $anchor = jQuery(this);
 		jQuery('html, body').stop().animate({
-			scrollTop: $($anchor.attr('href')).offset().top
+			scrollTop: jQuery($anchor.attr('href')).offset().top
 		}, 1500, 'easeInOutExpo');
 		event.preventDefault();
 	});

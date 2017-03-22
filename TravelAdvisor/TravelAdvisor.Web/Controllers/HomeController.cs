@@ -33,10 +33,17 @@ namespace TravelAdvisor.Web.Controllers
 				.Where(d=>d.IsDeleted == false)
 				.ProjectTo<DestinationViewModel>()
 				.ToList();
-			
-			var destinationsModel = new DestinationsListViewModel() { Destinations = destinations };
 
-			return this.View(destinationsModel);
+			if (destinations.Count > 0)
+			{
+				var destinationsModel = new DestinationsListViewModel() { Destinations = destinations };
+
+				return this.View(destinationsModel);
+			}
+			else
+			{
+				return this.View();
+			}
 		}		
 
 		[HttpPost]

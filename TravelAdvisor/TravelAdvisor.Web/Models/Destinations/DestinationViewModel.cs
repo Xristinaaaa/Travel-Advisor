@@ -13,6 +13,8 @@ namespace TravelAdvisor.Web.Models.Destinations
 
 		public string ImageUrl { get; set; }
 
+		public string Description { get; set; }
+
 		public bool IsDeleted { get; set; }
 	}
 }

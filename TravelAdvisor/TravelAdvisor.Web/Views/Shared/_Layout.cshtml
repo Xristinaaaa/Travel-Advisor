@@ -23,8 +23,11 @@
 	<footer>
 		@Html.Partial("Footer")
 	</footer>
-
-	@Html.Partial("ContactForm")
+	
+	@if (!User.IsInRole("Admin"))
+	{
+		@Html.Partial("ContactForm")
+	}
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

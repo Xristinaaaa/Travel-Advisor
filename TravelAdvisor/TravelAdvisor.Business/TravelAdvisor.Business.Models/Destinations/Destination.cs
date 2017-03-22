@@ -10,6 +10,8 @@ namespace TravelAdvisor.Business.Models.Destinations
 
 		public int countOfTrips { get; set; }
 
+		public string Description { get; set; }
+
 		public string ImageUrl { get; set; }
 
 		public bool IsDeleted { get; set; }

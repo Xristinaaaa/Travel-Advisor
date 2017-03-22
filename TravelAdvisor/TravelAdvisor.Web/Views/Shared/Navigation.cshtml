@@ -14,9 +14,9 @@
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li>@Html.ActionLink("Home", "Index", "Home")</li>
-				<li>@Html.ActionLink("Sevices", "", "")</li>
-				<li>@Html.ActionLink("Destinations", "", "")</li>
-				<li>@Html.ActionLink("Testimonials", "", "")</li>
+				<li>@Html.ActionLink("Destinations", "", "", new { Href = "#destinations", @class="page-scroll"})</li>
+				<li>@Html.ActionLink("Sevices", "", "", new { Href = "#services", @class = "page-scroll" })</li>
+				<li>@Html.ActionLink("Testimonials", "", "", new { Href = "#testimonials", @class = "page-scroll" })</li>
 
 				@if (Request.IsAuthenticated)
 				{

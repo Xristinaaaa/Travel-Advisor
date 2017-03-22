@@ -9,6 +9,7 @@ namespace TravelAdvisor.Web
 		{
 			bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
 						"~/Scripts/jquery-{version}.js",
+						"~/Scripts/jquery.easing.1.3.js",
 						"~/Scripts/jquery.unobtrusive-ajax.min.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -29,13 +30,18 @@ namespace TravelAdvisor.Web
 					  "~/Content/External/FontAwesome/font-awesome.css",
 					  "~/Content/Site.css"));
 
-			bundles.Add(new StyleBundle("~/Content/views").Include(
-					  "~/Content/Views/Account/register.css",
+			bundles.Add(new StyleBundle("~/Content/home").Include(
 					  "~/Content/Views/Home/destinations.css",
 					  "~/Content/Views/Home/header.css",
 					  "~/Content/Views/Home/home.css",
 					  "~/Content/Views/Home/services.css",
 					  "~/Content/Views/Home/testimonials.css"));
+
+			bundles.Add(new StyleBundle("~/Content/register").Include(
+					  "~/Content/Views/Account/register.css"));
+
+			bundles.Add(new StyleBundle("~/Content/admin").Include(
+					  "~/Content/Admin/Views/Home/home.css"));
 		}
 	}
 }
