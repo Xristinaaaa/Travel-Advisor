@@ -101,6 +101,7 @@
     <Compile Include="Services\Data\DestionationService\AddDestination_Should.cs" />
     <Compile Include="Services\Data\DestionationService\Constructor_Should.cs" />
     <Compile Include="Services\Data\DestionationService\GetAllDestinations_Should.cs" />
+    <Compile Include="Services\Data\DestionationService\GetDestinations_Should.cs" />
     <Compile Include="Services\Data\RegistrationServiceUnitTests\Constructor_Should.cs" />
     <Compile Include="Services\Data\RegistrationServiceUnitTests\CreateAdmin_Should.cs" />
     <Compile Include="Services\Data\RegistrationServiceUnitTests\CreateApplicationUser_Should.cs" />

@@ -11,6 +11,9 @@ namespace TravelAdvisor.Web.Controllers
 	public class HomeController : Controller
 	{
 		private const int ItemsPerPage = 6;
+		private const int StartIndex = 0;
+		private const int DestinationsBatchIncrease = 3;
+		private int DestinationsCount = 6;
 
 		private IDestinationService destinationService;
 		private IMappingService mappingService;
@@ -26,15 +29,29 @@ namespace TravelAdvisor.Web.Controllers
 
 		public ActionResult Index()
 		{
-			var destinations = destinationService.GetAllDestinations()
+			var destinations = destinationService.GetDestinations(0, ItemsPerPage)
 				.Where(d=>d.IsDeleted == false)
 				.ProjectTo<DestinationViewModel>()
-				.Take(ItemsPerPage)
 				.ToList();
-
+			
 			var destinationsModel = new DestinationsListViewModel() { Destinations = destinations };
 
-			return View(destinationsModel);
+			return this.View(destinationsModel);
 		}		
+
+		[HttpPost]
+		public ActionResult GetDestinations()
+		{
+			var moreDestinations = destinationService.GetDestinations(0, DestinationsCount + DestinationsBatchIncrease)
+					.Where(d => d.IsDeleted == false)
+					.ProjectTo<DestinationViewModel>()
+					.ToList();
+
+			DestinationsCount += DestinationsBatchIncrease;
+
+			var moreDestinationsModel = new DestinationsListViewModel() { Destinations = moreDestinations };
+
+			return PartialView("PopularDestinations", moreDestinationsModel);
+		}
 	}
 }

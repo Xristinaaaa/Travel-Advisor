@@ -31,6 +31,11 @@ namespace TravelAdvisor.Business.Services.Data
 			}
 		}
 
+		public IQueryable<Destination> GetDestinations(int startAt, int count)
+		{
+			return this.destinationRepository.All().OrderByDescending(x => x.Id).Skip(startAt).Take(count);
+		}
+
 		public IQueryable<Destination> GetAllDestinations()
 		{
 			return this.destinationRepository.All();

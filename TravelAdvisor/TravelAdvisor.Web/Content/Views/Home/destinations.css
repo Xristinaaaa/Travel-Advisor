@@ -7,7 +7,6 @@
 	height: 250px;
 	width: 370px;
 	margin: 0 auto;
-    overflow: hidden;
 }
 
 thumbnail .center-block {
@@ -22,7 +21,6 @@ thumbnail .center-block {
     position: absolute;
     top: 50%;
     transition: .4s;
-    transform: translateY(calc(0% - 14px));
 	color: #fff;
 }
 
@@ -62,23 +60,31 @@ thumbnail .center-block {
     
 .fader img:hover {
     opacity: 0.5;
-    width:   120%;
-    height:  120%; 
+    width: 120%;
+    height: 120%; 
+}
+
+.destinations-load-more {
+	position:relative;
+	float:left;
+    width: 330px;
+    height: 60px;
 }
 
 .prism-button {
-	position:relative;
-	float:left;
-    width: 263px;
+	position: relative;
+	float: left;
+    width: 330px;
     height: 60px;
     cursor: pointer;
     box-sizing: border-box;
 	background: transparent;
+	color: #A6D305;
     border: 3px solid #A6D305;
     font-family: 'raleway-regular',sans-serif;
     font-size: 13pt;
     text-align: center;
-	margin: 50px 0;
+	margin-top: 20px;
     text-transform: uppercase;
 }
 

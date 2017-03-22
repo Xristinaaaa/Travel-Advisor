@@ -1,10 +1,18 @@
-﻿<div class="container">
+﻿@using (Ajax.BeginForm("GetDestinations", "Home",
+	 new AjaxOptions
+	 {
+		 HttpMethod = "POST",
+		 UpdateTargetId = "container",
+		 InsertionMode = InsertionMode.Replace
+	 }))
+{
+<div id="container" class="container">
 	<div class="destinations-main-page generic-section">
 		<div class="destinations-content section-title">
 			<h2>Popular destinations</h2>
 			<div class="row">
 				@foreach (var item in Model.Destinations)
-				{				
+				{
 					<div class="col-md-4 fader">
 						<a href="" class="thumbnail">
 							<img src="@Url.Content(item.ImageUrl)" alt="" class="img-responsive center-block thumbnail-image">
@@ -15,34 +23,11 @@
 						</a>
 					</div>
 				}
-				<div class="col-md-4 fader">
-					<a href="tickets.html" class="thumbnail">
-						<img src="~/Images/Shared/post-37.jpg" alt="" class="img-responsive center-block thumbnail-image">
-						<div class="caption">
-							<h3>Rome</h3>
-							<p>The cultural, commercial, and financial center of Northern California.</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 fader">
-					<a href="tickets.html" class="thumbnail">
-						<img src="~/Images/Shared/post-37.jpg" alt="" class="img-responsive center-block thumbnail-image">
-						<div class="caption">
-							<h3>Rome</h3>
-							<p>The cultural, commercial, and financial center of Northern California.</p>
-						</div>
-					</a>
-				</div>
 			</div>
-			<div class="destinations-load-more section-title">
-				<button class="prism-button prism-wrap">
-					<span>
-						<i class="fa fa-arrow-right"></i>
-						Show more
-						<i class="fa fa-arrow-left"></i>
-					</span>
-				</button>
+			<div class="col-md-offset-4 destinations-load-more">
+				<input class="col-md-offset-1 prism-button prism-wrap" type="submit" value="SHOW MORE"/>
 			</div>
 		</div>
 	</div>
 </div>
+}
