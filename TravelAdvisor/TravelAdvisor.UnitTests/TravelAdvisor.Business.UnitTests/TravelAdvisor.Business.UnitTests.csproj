@@ -98,7 +98,13 @@
     <Compile Include="Data\UnitofWork\Dispose_Should.cs" />
     <Compile Include="Data\UnitofWork\SaveChanges_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Data\DestionationService\AddDestination_Should.cs" />
+    <Compile Include="Services\Data\DestionationService\Constructor_Should.cs" />
+    <Compile Include="Services\Data\DestionationService\GetAllDestinations_Should.cs" />
     <Compile Include="Services\Data\RegistrationServiceUnitTests\Constructor_Should.cs" />
+    <Compile Include="Services\Data\RegistrationServiceUnitTests\CreateAdmin_Should.cs" />
+    <Compile Include="Services\Data\RegistrationServiceUnitTests\CreateApplicationUser_Should.cs" />
+    <Compile Include="Services\Data\RegistrationServiceUnitTests\CreateRegularUser_Should.cs" />
     <Compile Include="Services\Data\RegistrationServiceUnitTests\GetAllUserRoles_Should.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -121,7 +127,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Services\Data\DestionationService\" />
     <Folder Include="Services\Logic\" />
   </ItemGroup>
   <Choose>

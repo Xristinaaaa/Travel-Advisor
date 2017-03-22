@@ -253,6 +253,7 @@
     <Compile Include="App_Start\DatabaseConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectBindings\Constants\Assemblies.cs" />
     <Compile Include="App_Start\NinjectBindings\DataBindings.cs" />
     <Compile Include="App_Start\NinjectBindings\ModelsBindings.cs" />
     <Compile Include="App_Start\NinjectBindings\ServicesBindings.cs" />
@@ -273,6 +274,8 @@
     <Compile Include="Models\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\Account\ForgotViewModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
+    <Compile Include="Models\Destinations\DestinationViewModel.cs" />
+    <Compile Include="Models\Destinations\DestinationsListViewModel.cs" />
     <Compile Include="Models\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="Models\Manage\ConfigureTwoFactorViewModel.cs" />
     <Compile Include="Models\Manage\FactorViewModel.cs" />
@@ -406,9 +409,11 @@
     <Content Include="Views\Home\Testimonials.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Controllers\Base\" />
     <Folder Include="Images\Admin\" />
-    <Folder Include="Models\Home\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

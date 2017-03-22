@@ -26,7 +26,15 @@ namespace TravelAdvisor.Web
 					  "~/Content/Fonts.css",
 					  "~/Content/External/Bootstrap/bootstrap.css",
 					  "~/Content/External/FontAwesome/font-awesome.css",
-					  "~/Content/site.css"));
+					  "~/Content/Site.css"));
+
+			bundles.Add(new StyleBundle("~/Content/views").Include(
+					  "~/Content/Views/Account/register.css",
+					  "~/Content/Views/Home/destinations.css",
+					  "~/Content/Views/Home/header.css",
+					  "~/Content/Views/Home/home.css",
+					  "~/Content/Views/Home/services.css",
+					  "~/Content/Views/Home/testimonials.css"));
 		}
 	}
 }

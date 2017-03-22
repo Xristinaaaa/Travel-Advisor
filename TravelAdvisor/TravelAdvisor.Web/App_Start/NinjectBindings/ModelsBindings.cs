@@ -1,5 +1,6 @@
 ﻿using Ninject.Extensions.Conventions;
 using Ninject.Modules;
+using TravelAdvisor.Web.App_Start.NinjectBindings.Constants;
 
 namespace TravelAdvisor.Web.App_Start.NinjectBindings
 {
@@ -7,7 +8,7 @@ namespace TravelAdvisor.Web.App_Start.NinjectBindings
 	{
 		public override void Load()
 		{
-			this.Bind(x => x.From("TravelAdvisor.Business.Models").SelectAllClasses().BindDefaultInterface());
+			this.Bind(x => x.From(Assemblies.Models).SelectAllClasses().BindDefaultInterface());
 		}
 	}
 }

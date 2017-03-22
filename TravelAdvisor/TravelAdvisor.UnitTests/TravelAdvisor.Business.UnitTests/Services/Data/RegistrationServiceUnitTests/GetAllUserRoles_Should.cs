@@ -34,7 +34,7 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.RegistrationServiceUnit
 		}
 
 		[Test]
-		public void ReturnIqueriable_WhenInvoked()
+		public void ReturnIqueryable_WhenInvoked()
 		{
 			var mockedRoleRepository = new Mock<IEFRepository<IdentityRole>>();
 			var mockedRegularUserRepository = new Mock<IEFRepository<RegularUser>>();

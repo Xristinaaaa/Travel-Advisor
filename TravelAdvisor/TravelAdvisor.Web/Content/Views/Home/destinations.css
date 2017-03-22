@@ -1,64 +1,69 @@
 ﻿/* Destinations */
-.destinations-content > h2 {
-    text-align: center;
-    font-family: lobster;
-	color:#A6D305;
-    padding-bottom: 30px;
-    margin-bottom: 20px;
-	margin-top: 50px;
-}
-
-thumbnail-variant-4 .center-block {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-thumbnail-variant-4 .img-responsive {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-.thumbnail-variant-4 {
+.thumbnail {
     display: block;
     position: relative;
 	float: left;
-	width: 100%;
+	text-align: center;
+	height: 250px;
+	width: 370px;
+	margin: 0 auto;
     overflow: hidden;
-    background-color: #1f2746;
-    max-height: 240px;
 }
 
-.thumbnail-variant-4 .caption {
+thumbnail .center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%; 
+}
+
+.thumbnail .caption {
     position: absolute;
     top: 50%;
-    left: 10px;
-    right: 10px;
     transition: .4s;
     transform: translateY(calc(0% - 14px));
+	color: #fff;
 }
 
-.thumbnail-variant-4 .caption h3 {
+.thumbnail .caption h3 {
     white-space: nowrap;
+	text-align:center;
     font-size: 24px;
+	font-weight: 600;
 }
 
-.thumbnail-variant-4 .caption p {
-    margin-top: 10px;
-    margin-bottom: 8px;
+.thumbnail p {
+	display:none;
 }
 
-.thumbnail-variant-4 p {
-    transition: .3s;
-    opacity: 0;
+.thumbnail:hover p {
+	display:inline;
 }
 
-destinations-load-more {	
-	position:relative;
-	float:left;
-	margin: 0 auto;
-	width: 100%;
+.fader {
+	height: 250px;
+	width: 370px;
+	display:  inline-block;
+	position: relative;
+	overflow: hidden; 
+	margin: 10px;
+}
+       
+.fader img {
+    width:100%;
+    height: 100%;
+    line-height: 0;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease; 
+}
+    
+.fader img:hover {
+    opacity: 0.5;
+    width:   120%;
+    height:  120%; 
 }
 
 .prism-button {
@@ -67,14 +72,13 @@ destinations-load-more {
     width: 263px;
     height: 60px;
     cursor: pointer;
-    perspective: 500px;
-    -webkit-perspective: 500px;
     box-sizing: border-box;
 	background: transparent;
     border: 3px solid #A6D305;
     font-family: 'raleway-regular',sans-serif;
     font-size: 13pt;
     text-align: center;
+	margin: 50px 0;
     text-transform: uppercase;
 }
 
