@@ -10,14 +10,22 @@
 	<div class="destinations-main-page generic-section">
 		<div class="destinations-content section-title">
 			<h2>Popular destinations</h2>
-			@if (Model != null)
+			@if (Model.Destinations != null)
 			{
 				<div class="row">
 					@foreach (var item in Model.Destinations)
 					{
 						<div class="col-md-4 fader">
 							<a href="" class="thumbnail">
-								<img src="@Url.Content(item.ImageUrl)" alt="" class="img-responsive center-block thumbnail-image">
+								@if (item.Image != null)
+								{
+									<img src="@item.Image" alt="" class="img-responsive center-block thumbnail-image">
+								}
+
+								@if (item.ImageUrl != null)
+								{
+									<img src="@Url.Content(item.ImageUrl)" alt="" class="img-responsive center-block thumbnail-image">
+								}
 								<div class="caption text-center">
 									<h3>@item.Country</h3>
 									<p>@item.Description</p>

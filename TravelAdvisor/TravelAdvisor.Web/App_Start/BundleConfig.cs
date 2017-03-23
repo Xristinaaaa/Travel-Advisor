@@ -41,8 +41,8 @@ namespace TravelAdvisor.Web
 					  "~/Content/Views/Account/register.css"));
 
 			bundles.Add(new StyleBundle("~/Content/admin").Include(
-					  "~/Content/Admin/Views/Administration/administration.css"),
-					  "~/Content/Admin/Views/Destinations/destinations.css");
+					  "~/Content/Admin/Views/Administration/administration.css",
+					  "~/Content/Admin/Views/common.css"));
 		}
 	}
 }

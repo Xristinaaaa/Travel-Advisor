@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Bytes2you.Validation;
 using Microsoft.AspNet.Identity.EntityFramework;
 using TravelAdvisor.Business.Data.Contracts;

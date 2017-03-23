@@ -290,7 +290,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Admin\Views\Administration\administration.css" />
-    <Content Include="Content\Admin\Views\Destinations\destinations.css" />
+    <Content Include="Content\Admin\Views\common.css" />
     <Content Include="Content\External\Bootstrap\bootstrap.css" />
     <Content Include="Content\External\Bootstrap\bootstrap.min.css" />
     <Content Include="Content\External\RevSlider\extralayers.css" />
@@ -362,9 +362,9 @@
     <Content Include="fonts\FontAwesome\fontawesome-webfont.woff" />
     <Content Include="fonts\FontAwesome\fontawesome-webfont.ttf" />
     <Content Include="fonts\FontAwesome\fontawesome-webfont.eot" />
-    <Content Include="Areas\Admin\Views\Destinations\Create.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Administration\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Destinations\Create.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -430,6 +430,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TravelAdvisor.Business\TravelAdvisor.Business.Common\TravelAdvisor.Business.Common.csproj">
+      <Project>{2ef71e2e-b000-4125-87a1-ee4b7a1ccc85}</Project>
+      <Name>TravelAdvisor.Business.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TravelAdvisor.Business\TravelAdvisor.Business.Data\TravelAdvisor.Business.Data.csproj">
       <Project>{5f8119a0-0448-4ba4-a7fe-910464478bb0}</Project>
       <Name>TravelAdvisor.Business.Data</Name>

@@ -12,6 +12,8 @@
 
 		string ImageUrl { get; set; }
 
+		string ImagePath { get; set; }
+
 		bool IsDeleted { get; set; }
 	}
 }

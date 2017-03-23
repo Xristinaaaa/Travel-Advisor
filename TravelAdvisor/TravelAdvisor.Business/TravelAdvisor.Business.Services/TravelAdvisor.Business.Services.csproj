@@ -61,6 +61,7 @@
       <HintPath>..\..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,8 +71,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Contracts\IDestinationService.cs" />
+    <Compile Include="Data\Contracts\IImageService.cs" />
     <Compile Include="Data\Contracts\IRegistrationService.cs" />
     <Compile Include="Data\DestinationService.cs" />
+    <Compile Include="Data\ImageService.cs" />
     <Compile Include="Data\RegistrationService.cs" />
     <Compile Include="Logic\Contracts\IEmailService.cs" />
     <Compile Include="Logic\Contracts\IMappingService.cs" />

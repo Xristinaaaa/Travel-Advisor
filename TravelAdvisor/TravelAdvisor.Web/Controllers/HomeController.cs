@@ -2,18 +2,17 @@
 using System.Web.Mvc;
 using AutoMapper.QueryableExtensions;
 using Bytes2you.Validation;
+using TravelAdvisor.Business.Common.Constants;
 using TravelAdvisor.Business.Services.Data.Contracts;
 using TravelAdvisor.Business.Services.Logic.Contracts;
 using TravelAdvisor.Web.Models.Destinations;
 
 namespace TravelAdvisor.Web.Controllers
 {
+	[AllowAnonymous]
 	public class HomeController : Controller
 	{
-		private const int ItemsPerPage = 6;
-		private const int StartIndex = 0;
-		private const int DestinationsBatchIncrease = 3;
-		private int DestinationsCount = 6;
+		private int destinationsCount = 6;
 
 		private IDestinationService destinationService;
 		private IMappingService mappingService;
@@ -27,11 +26,12 @@ namespace TravelAdvisor.Web.Controllers
 			this.mappingService = mappingService;
 		}
 
+		// Get: /
 		public ActionResult Index()
 		{
-			if (destinationService.GetAllDestinations().Count() > 0)
+			if (destinationService.GetAllDestinations().ToList().Count() > 0)
 			{
-				var destinations = destinationService.GetDestinations(0, ItemsPerPage)
+				var destinations = destinationService.GetDestinations(0, ControllersConstants.ItemsPerPage)
 					.Where(d => d.IsDeleted == false)
 					.ProjectTo<DestinationViewModel>()
 					.ToList();
@@ -46,15 +46,16 @@ namespace TravelAdvisor.Web.Controllers
 			}
 		}		
 
+		// Post: /
 		[HttpPost]
 		public ActionResult GetDestinations()
 		{
-			var moreDestinations = destinationService.GetDestinations(0, DestinationsCount + DestinationsBatchIncrease)
+			var moreDestinations = destinationService.GetDestinations(0, destinationsCount + ControllersConstants.DestinationsBatchIncrease)
 					.Where(d => d.IsDeleted == false)
 					.ProjectTo<DestinationViewModel>()
 					.ToList();
 
-			DestinationsCount += DestinationsBatchIncrease;
+			destinationsCount += ControllersConstants.DestinationsBatchIncrease;
 
 			var moreDestinationsModel = new DestinationsListViewModel() { Destinations = moreDestinations };
 

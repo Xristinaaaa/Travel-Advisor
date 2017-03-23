@@ -11,7 +11,7 @@ namespace TravelAdvisor.Web.App_Start.NinjectBindings
 		public override void Load()
 		{
 			this.Bind(typeof(IEFRepository<>)).To(typeof(EFRepository<>));
-			this.Bind<ITravelAdvisorDbContext>().To<TravelAdvisorDbContext>().InSingletonScope();
+			this.Bind<ITravelAdvisorDbContext>().To<TravelAdvisorDbContext>();
 			this.Bind<IUnitOfWork>().To<UnitOfWork>();
 		}
 	}
