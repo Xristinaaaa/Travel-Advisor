@@ -3,6 +3,10 @@
 	ViewBag.Title = "Create destination";
 }
 
+@section styles {
+	@Styles.Render("~/Content/Admin/Views/Destinations/destinations.css")
+}
+
 @using (Html.BeginForm())
 {
 	@Html.AntiForgeryToken()

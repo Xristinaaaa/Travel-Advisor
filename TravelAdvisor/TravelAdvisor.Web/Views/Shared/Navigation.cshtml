@@ -13,18 +13,18 @@
 	<div class="navbar-collapse collapse navbar-right">
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li>@Html.ActionLink("Home", "Index", "Home")</li>
-				<li>@Html.ActionLink("Destinations", "", "", new { Href = "#destinations", @class="page-scroll"})</li>
-				<li>@Html.ActionLink("Sevices", "", "", new { Href = "#services", @class = "page-scroll" })</li>
-				<li>@Html.ActionLink("Testimonials", "", "", new { Href = "#testimonials", @class = "page-scroll" })</li>
+				<li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { Href="/"})</li>
+				<li>@Html.ActionLink("Destinations", "", "", new { area = "" }, new { Href = "/#destinations", @class="page-scroll"})</li>
+				<li>@Html.ActionLink("Sevices", "", "", new { area = "" }, new { Href = "/#services", @class = "page-scroll" })</li>
+				<li>@Html.ActionLink("Testimonials", "", "", new { area = "" }, new { Href = "/#testimonials", @class = "page-scroll" })</li>
 
 				@if (Request.IsAuthenticated)
 				{
 					<li class="dropdown-toggle">
 						@Html.ActionLink("Tours", "", "")
 						<ul class="dropdown-menu" role="menu">
-							<li>@Html.ActionLink("Cruises", "Index", "Home")</li>
-							<li>@Html.ActionLink("Trips", "Index", "Home")</li>
+							<li>@Html.ActionLink("Cruises", "", "")</li>
+							<li>@Html.ActionLink("Trips", "", "")</li>
 						</ul>
 					</li>
 					<li class="dropdown-toggle">

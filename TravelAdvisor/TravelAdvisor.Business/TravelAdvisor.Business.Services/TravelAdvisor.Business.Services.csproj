@@ -73,7 +73,9 @@
     <Compile Include="Data\Contracts\IRegistrationService.cs" />
     <Compile Include="Data\DestinationService.cs" />
     <Compile Include="Data\RegistrationService.cs" />
+    <Compile Include="Logic\Contracts\IEmailService.cs" />
     <Compile Include="Logic\Contracts\IMappingService.cs" />
+    <Compile Include="Logic\EmailService.cs" />
     <Compile Include="Logic\MappingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -29,13 +29,13 @@ namespace TravelAdvisor.Web.Controllers
 
 		public ActionResult Index()
 		{
-			var destinations = destinationService.GetDestinations(0, ItemsPerPage)
-				.Where(d=>d.IsDeleted == false)
-				.ProjectTo<DestinationViewModel>()
-				.ToList();
-
-			if (destinations.Count > 0)
+			if (destinationService.GetAllDestinations().Count() > 0)
 			{
+				var destinations = destinationService.GetDestinations(0, ItemsPerPage)
+					.Where(d => d.IsDeleted == false)
+					.ProjectTo<DestinationViewModel>()
+					.ToList();
+
 				var destinationsModel = new DestinationsListViewModel() { Destinations = destinations };
 
 				return this.View(destinationsModel);

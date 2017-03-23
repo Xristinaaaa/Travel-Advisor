@@ -3,6 +3,40 @@
 }
 
 @section styles {
-	@Styles.Render("~/Content/Admin/Views/Home/home.css")
+	@Styles.Render("~/Content/Admin/Views/Administration/administration.css")
 }
-<p class="body-content">Hello</p>
+
+<section class="body-content">
+	<div class="admin-list">
+		<div class="col-md-12">
+			<div class="row">
+				<ul class="col-md-6 col-md-offset-3">
+					<li class="dropdown-toggle col-md-6">
+						<span>Destinations</span>
+						<ul class="dropdown-menu" role="menu">
+							<li>@Html.ActionLink("Create destination", "Create", "Destinations", null, new { area = "Admin", Href = "/Admin/Destinations/Create" })</li>
+						</ul>
+					</li>
+					<li class="dropdown-toggle col-md-6">
+						<span>Tours</span>
+						<ul class="dropdown-menu" role="menu">
+							<li>@Html.ActionLink("Create tour", "", "", null, new { area = "Admin", Href = "" })</li>
+						</ul>
+					</li>
+					<li class="dropdown-toggle col-md-6">
+						<span>Cruises</span>
+						<ul class="dropdown-menu" role="menu">
+							<li>@Html.ActionLink("Create cruise", "", "", null, new { area = "Admin", Href = "" })</li>
+						</ul>
+					</li>
+					<li class="dropdown-toggle col-md-6">
+						<span>Car rentals</span>
+						<ul class="dropdown-menu" role="menu">
+							<li>@Html.ActionLink("Create car rental", "", "", null, new { area = "Admin", Href = "" })</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>

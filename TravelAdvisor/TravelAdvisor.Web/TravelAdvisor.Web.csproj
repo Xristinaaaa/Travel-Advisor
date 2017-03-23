@@ -252,7 +252,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DatabaseConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\NinjectBindings\Constants\Assemblies.cs" />
     <Compile Include="App_Start\NinjectBindings\DataBindings.cs" />
     <Compile Include="App_Start\NinjectBindings\ModelsBindings.cs" />
@@ -290,7 +289,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Admin\Views\Home\home.css" />
+    <Content Include="Content\Admin\Views\Administration\administration.css" />
+    <Content Include="Content\Admin\Views\Destinations\destinations.css" />
     <Content Include="Content\External\Bootstrap\bootstrap.css" />
     <Content Include="Content\External\Bootstrap\bootstrap.min.css" />
     <Content Include="Content\External\RevSlider\extralayers.css" />
@@ -311,7 +311,7 @@
     <Content Include="fonts\RevSlider\revicons.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\Admin\background.png" />
+    <Content Include="Images\Admin\admin.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\Shared\footer.png" />
     <Content Include="Images\Shared\headerBackground.png" />
