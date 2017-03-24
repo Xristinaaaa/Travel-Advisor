@@ -14,17 +14,14 @@ namespace TravelAdvisor.Business.Data.UnitOfWork
 			this.context = context;
 		}
 
-		public void Dispose()
-		{
-			if (this.context != null)
-			{
-				this.context.Dispose();
-			}
-		}
-
 		public void SaveChanges()
 		{
 			this.context.SaveChanges();
+		}
+
+		public void Dispose()
+		{
+
 		}
 	}
 }

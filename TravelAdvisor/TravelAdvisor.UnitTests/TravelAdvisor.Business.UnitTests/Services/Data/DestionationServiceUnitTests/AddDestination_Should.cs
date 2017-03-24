@@ -5,7 +5,7 @@ using TravelAdvisor.Business.Data.Contracts;
 using TravelAdvisor.Business.Models.Destinations;
 using TravelAdvisor.Business.Services.Data;
 
-namespace TravelAdvisor.Business.UnitTests.Services.Data.DestionationService
+namespace TravelAdvisor.Business.UnitTests.Services.Data.DestionationServiceUnitTests
 {
 	[TestFixture]
 	public class AddDestination_Should

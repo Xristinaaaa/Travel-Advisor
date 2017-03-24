@@ -7,10 +7,10 @@ using TravelAdvisor.Business.Data.Contracts;
 using TravelAdvisor.Business.Models.Destinations;
 using TravelAdvisor.Business.Services.Data;
 
-namespace TravelAdvisor.Business.UnitTests.Services.Data.DestionationService
+namespace TravelAdvisor.Business.UnitTests.Services.Data.DestionationServiceUnitTests
 {
 	[TestFixture]
-	public class GetAllDestinations_Should
+	public class GetDestinations_Should
 	{
 		[Test]
 		public void BeCalled_WhenParamsAreValid()
@@ -19,22 +19,22 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.DestionationService
 			var mockedUnitOfWork = new Mock<IUnitOfWork>();
 			var destinationService = new DestinationService(mockedRepository.Object, mockedUnitOfWork.Object);
 
-			destinationService.GetAllDestinations();
+			destinationService.GetDestinations(1, 2);
 
 			mockedRepository.Verify(repository => repository.All(), Times.Once);
 		}
 
 		[Test]
-		public void ReturnIqueryable_WhenInvoked()
+		public void ReturnIQueryable_WhenInvoked()
 		{
 			var mockedRepository = new Mock<IEFRepository<Destination>>();
 			var mockedUnitOfWork = new Mock<IUnitOfWork>();
 			var destinationService = new DestinationService(mockedRepository.Object, mockedUnitOfWork.Object);
 
 			IEnumerable<Destination> result = new List<Destination>() { new Destination(), new Destination(), new Destination() };
-			mockedRepository.Setup(repository => repository.All()).Returns(() => result.AsQueryable());
+			mockedRepository.Setup(repository => repository.Entities).Returns(() => result.AsQueryable());
 
-			Assert.IsInstanceOf<IQueryable<Destination>>(destinationService.GetAllDestinations());
+			Assert.IsInstanceOf<IQueryable<Destination>>(destinationService.GetDestinations(0, 3));
 		}
 
 		[Test]
@@ -44,10 +44,10 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.DestionationService
 			var mockedUnitOfWork = new Mock<IUnitOfWork>();
 			var destinationService = new DestinationService(mockedRepository.Object, mockedUnitOfWork.Object);
 
-			IEnumerable<Destination> result = new List<Destination>() { new Destination(), new Destination(), new Destination() };
+			IEnumerable<Destination> result = new List<Destination>() { new Destination(), new Destination() };
 			mockedRepository.Setup(repository => repository.All()).Returns(() => result.AsQueryable());
 
-			Assert.AreEqual(destinationService.GetAllDestinations(), result);
+			Assert.AreEqual(destinationService.GetDestinations(0, 2), result);
 		}
 
 		[Test]
@@ -58,9 +58,9 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.DestionationService
 			var destinationService = new DestinationService(mockedRepository.Object, mockedUnitOfWork.Object);
 
 			IEnumerable<Destination> result = new List<Destination>();
-			mockedRepository.Setup(repository => repository.All()).Returns(() => result.AsQueryable());
+			mockedRepository.Setup(repository => repository.Entities).Returns(() => result.AsQueryable());
 
-			Assert.IsEmpty(destinationService.GetAllDestinations());
+			Assert.IsEmpty(destinationService.GetDestinations(0, 1));
 		}
 
 		[Test]
@@ -73,7 +73,7 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.DestionationService
 			IEnumerable<Destination> result = null;
 			mockedRepository.Setup(repository => repository.All()).Returns(() => result.AsQueryable());
 
-			Assert.Throws<ArgumentNullException>(() => destinationService.GetAllDestinations());
+			Assert.Throws<ArgumentNullException>(() => destinationService.GetDestinations(0, 1));
 		}
 	}
 }

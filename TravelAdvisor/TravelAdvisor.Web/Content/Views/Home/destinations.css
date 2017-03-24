@@ -1,4 +1,8 @@
 ﻿/* Destinations */
+.row:after {
+    clear: none;
+}
+
 .thumbnail {
     display: block;
     position: relative;

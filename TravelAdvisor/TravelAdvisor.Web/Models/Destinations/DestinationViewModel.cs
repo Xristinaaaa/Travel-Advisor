@@ -8,11 +8,9 @@ namespace TravelAdvisor.Web.Models.Destinations
 {
 	public class DestinationViewModel : IMapFrom<Destination>, IHaveCustomMappings
 	{
-		public int Id { get; set; }
-
 		[DataType(DataType.Text)]
 		[Required]
-		[StringLength(100, ErrorMessage = "Country name must be at least {2} characters long.", MinimumLength = 6)]
+		[StringLength(100, ErrorMessage = "Country name must be at least {2} characters long.", MinimumLength = 5)]
 		public string Country { get; set; }
 
 		public int countOfTrips { get; set; }

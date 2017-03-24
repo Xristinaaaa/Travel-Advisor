@@ -49,6 +49,15 @@
 						<input type="submit" value="Log in" class="btn btn-signin" />
 					</div>
 				</div>
+				<div class="form-group">
+					<div class="col-md-12">
+						<p class="text-signup">
+							@Html.Label("Don`t have an account?")
+							@Html.ActionLink("Sign Up", "Register", "Account")
+							@Html.Label(" now!")
+						</p>
+					</div>
+				</div>
 				@* Enable this once you have account confirmation enabled for password reset functionality
 				<p>
 					@Html.ActionLink("Forgot your password?", "ForgotPassword")

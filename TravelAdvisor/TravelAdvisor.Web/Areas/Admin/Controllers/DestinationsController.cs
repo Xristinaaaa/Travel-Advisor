@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using System.Web.Mvc;
-using AutoMapper;
 using Bytes2you.Validation;
 using TravelAdvisor.Business.Common.Constants;
 using TravelAdvisor.Business.Models.Destinations;
@@ -10,11 +9,12 @@ using TravelAdvisor.Web.Models.Destinations;
 
 namespace TravelAdvisor.Web.Areas.Admin.Controllers
 {
-    public class DestinationsController : Controller
+	[Authorize(Roles = "Admin")]
+	public class DestinationsController : Controller
 	{
-		private IDestinationService destinationService;
 		private IMappingService mappingService;
 		private IImageService imageService;
+		private IDestinationService destinationService;
 		
 		public DestinationsController(IDestinationService destinationService, IMappingService mappingService, IImageService imageService)
 		{
@@ -49,8 +49,8 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
 			{
 				return this.View(newDestination);
 			}
-
-			var destinationToAdd = Mapper.Map<DestinationViewModel, Destination>(newDestination);
+			
+			var destinationToAdd = this.mappingService.Map<DestinationViewModel, Destination>(newDestination);
 
 			if (newDestination.Image != null)
 			{
@@ -63,14 +63,13 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
 				newDestination.Image.SaveAs(path);
 			}
 
-			if (newDestination.ImageUrl == null)
+			if (newDestination.ImageUrl == null && newDestination.Image == null)
 			{
-				newDestination.ImageUrl = ControllersConstants.defaultDestinationUrl;
+				destinationToAdd.ImageUrl = ControllersConstants.defaultDestinationUrl;
 			}
 
 			this.destinationService.AddDestination(destinationToAdd);
-
-			return Redirect("/Admin/Administration");
+			return Redirect("/");
 		}
 	}
 }

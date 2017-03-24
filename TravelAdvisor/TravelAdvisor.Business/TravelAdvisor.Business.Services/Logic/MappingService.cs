@@ -15,9 +15,9 @@ namespace TravelAdvisor.Business.Services.Logic
 			return Mapper.Map<TSource, TDestination>(source, destination);
 		}
 
-		public TDestination Map<TSource, TDestination>(TSource newObject)
+		public TDestination Map<TSource, TDestination>(TSource source)
 		{
-			return Mapper.Map<TSource, TDestination>(newObject);
+			return Mapper.Map<TSource, TDestination>(source);
 		}
 	}
 }

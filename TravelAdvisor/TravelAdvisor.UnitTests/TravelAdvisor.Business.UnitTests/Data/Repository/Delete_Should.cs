@@ -53,5 +53,23 @@ namespace TravelAdvisor.Business.UnitTests.Data.Repository
 			//Assert
 			mockedContext.Verify(x => x.Entry(mockedAnimal.Object), Times.AtLeastOnce);
 		}
+
+		[Test]
+		public void Work_WhenArgumentIsValid()
+		{
+			//Arrange
+			var mockedSet = new Mock<IDbSet<IDestination>>();
+			var mockedAnimal = new Mock<IDestination>();
+			mockedAnimal.SetupAllProperties();
+
+			var mockedContext = new Mock<ITravelAdvisorDbContext>();
+
+			//Act
+			mockedContext.Setup(x => x.Set<IDestination>()).Returns(mockedSet.Object);
+			var repository = new EFRepository<IDestination>(mockedContext.Object);
+			
+			//Assert
+			mockedContext.Verify(x => x.Entry(mockedAnimal.Object), Times.Never);
+		}
 	}
 }

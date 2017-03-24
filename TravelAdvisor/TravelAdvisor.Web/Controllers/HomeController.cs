@@ -4,7 +4,6 @@ using AutoMapper.QueryableExtensions;
 using Bytes2you.Validation;
 using TravelAdvisor.Business.Common.Constants;
 using TravelAdvisor.Business.Services.Data.Contracts;
-using TravelAdvisor.Business.Services.Logic.Contracts;
 using TravelAdvisor.Web.Models.Destinations;
 
 namespace TravelAdvisor.Web.Controllers
@@ -15,15 +14,12 @@ namespace TravelAdvisor.Web.Controllers
 		private int destinationsCount = 6;
 
 		private IDestinationService destinationService;
-		private IMappingService mappingService;
 
-		public HomeController(IDestinationService destinationService, IMappingService mappingService)
+		public HomeController(IDestinationService destinationService)
 		{
 			Guard.WhenArgument(destinationService, "Destination service is null.").IsNull().Throw();
-			Guard.WhenArgument(mappingService, "Mapping service is null.").IsNull().Throw();
 
 			this.destinationService = destinationService;
-			this.mappingService = mappingService;
 		}
 
 		// Get: /

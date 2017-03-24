@@ -103,6 +103,10 @@
       <Project>{10d2cf0e-4c50-401c-b314-deb8c6f605c5}</Project>
       <Name>TravelAdvisor.Business.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TravelAdvisor.Business.Services\TravelAdvisor.Business.Services.csproj">
+      <Project>{1c491882-d9a4-4c99-a9d8-42cad7254e16}</Project>
+      <Name>TravelAdvisor.Business.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

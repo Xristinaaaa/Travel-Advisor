@@ -1,8 +1,13 @@
 ﻿/* Common */
+html, main {
+    height: 100%;
+}
+
 main {
     background: url("../../../Images/Shared/sign.png");
     background-size: cover;
     background-repeat: no-repeat;
+	min-height: 100%;
     float: left;
     position: relative;
 }
@@ -180,6 +185,15 @@ textarea.form-control:focus {
 
 .btn-signin.btn:active:focus .btn-register.btn:active:focus { outline: 0; opacity: 0.6; background: #19b9e7; color: #fff; }
 
+.text-signup {
+	color: #fff;
+	font-size: 15px;
+	text-align: center
+}
+.text-signup a {
+	color: #A6D305;
+	text-decoration: none;
+}
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:    #888;
@@ -197,9 +211,8 @@ textarea.form-control:focus {
 }
 
 .text-danger {
-    background: #9C2B2E;
-    color: #fff !important;
+    color: #9C2B2E !important;
+	font-weight:bold;
+	font-size: 17px;
     padding: 5px;
-    border: 1px solid #b94a48;
-    float: left;
 }

@@ -1,5 +1,5 @@
 ﻿/* Common */
-html, main {
+html {
     height: 100%;
 }
 
@@ -7,7 +7,6 @@ main {
     background: url("../../../Images/Admin/admin.png");
     background-size: cover;
     background-repeat: no-repeat;
-	min-height: 100%;
     float: left;
     position: relative;
 }
@@ -204,8 +203,8 @@ textarea.form-control:focus {
 }
 
 .text-danger {
-    background: #9C2B2E;
-    color: #fff !important;
+    color: #9C2B2E !important;
+	font-weight:bold;
+	font-size: 17px;
     padding: 5px;
-    border: 1px solid #b94a48;
 }

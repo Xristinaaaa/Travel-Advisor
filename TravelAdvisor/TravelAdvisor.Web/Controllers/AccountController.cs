@@ -9,7 +9,6 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TravelAdvisor.Business.Identity;
 using TravelAdvisor.Business.Models.Users;
-using TravelAdvisor.Business.Services.Data;
 using TravelAdvisor.Business.Services.Data.Contracts;
 using TravelAdvisor.Web.Models.Account;
 
@@ -18,8 +17,6 @@ namespace TravelAdvisor.Web.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private ApplicationSignInManager signInManager;
-        private ApplicationUserManager userManager;
 		private IRegistrationService registrationService;		
 
 		public AccountController(IRegistrationService registrationService)
@@ -33,11 +30,7 @@ namespace TravelAdvisor.Web.Controllers
         {
             get
             {
-                return signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
-            }
-            private set 
-            { 
-                signInManager = value; 
+                return HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
         }
 
@@ -45,11 +38,7 @@ namespace TravelAdvisor.Web.Controllers
         {
             get
             {
-                return userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                userManager = value;
+                return HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
         }
 		
@@ -324,26 +313,6 @@ namespace TravelAdvisor.Web.Controllers
         public ActionResult ExternalLoginFailure()
         {
             return View();
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                if (userManager != null)
-                {
-                    userManager.Dispose();
-                    userManager = null;
-                }
-
-                if (signInManager != null)
-                {
-                    signInManager.Dispose();
-                    signInManager = null;
-                }
-            }
-
-            base.Dispose(disposing);
         }
 
         #region Helpers
