@@ -96,8 +96,33 @@
     <Compile Include="Data\Repository\GetById_Should.cs" />
     <Compile Include="Data\Repository\Update_Should.cs" />
     <Compile Include="Data\UnitofWork\Constructor_Should.cs" />
-    <Compile Include="Data\UnitofWork\Dispose_Should.cs" />
     <Compile Include="Data\UnitofWork\SaveChanges_Should.cs" />
+    <Compile Include="Models\Destinations\CountOfTripsShould.cs" />
+    <Compile Include="Models\Destinations\Country_Should.cs" />
+    <Compile Include="Models\Destinations\Description_Should.cs" />
+    <Compile Include="Models\Destinations\Id_Should.cs" />
+    <Compile Include="Models\Destinations\ImagePath_Should.cs" />
+    <Compile Include="Models\Destinations\ImageUrl_Should.cs" />
+    <Compile Include="Models\Destinations\IsDeleted_Should.cs" />
+    <Compile Include="Models\Users\AdminUnitTests\ApplicationUser_Should.cs" />
+    <Compile Include="Models\Users\AdminUnitTests\CarRentals_Should.cs" />
+    <Compile Include="Models\Users\AdminUnitTests\Constructor_Should.cs" />
+    <Compile Include="Models\Users\AdminUnitTests\FlightRequests_Shouldcs.cs" />
+    <Compile Include="Models\Users\AdminUnitTests\Id_Should.cs" />
+    <Compile Include="Models\Users\AdminUnitTests\IsDeleted_Should.cs" />
+    <Compile Include="Models\Users\AdminUnitTests\Messages_Should.cs" />
+    <Compile Include="Models\Users\ApplicationUserUnitTests\Age_Should.cs" />
+    <Compile Include="Models\Users\ApplicationUserUnitTests\FirstName_Should.cs" />
+    <Compile Include="Models\Users\ApplicationUserUnitTests\ImageUrl_Should.cs" />
+    <Compile Include="Models\Users\ApplicationUserUnitTests\LastName_Should.cs" />
+    <Compile Include="Models\Users\RegularUserUnitTests\ApplicationUser_Should.cs" />
+    <Compile Include="Models\Users\RegularUserUnitTests\CarRentals_Should.cs" />
+    <Compile Include="Models\Users\RegularUserUnitTests\Constructor_Should.cs" />
+    <Compile Include="Models\Users\RegularUserUnitTests\Cruises_Should.cs" />
+    <Compile Include="Models\Users\RegularUserUnitTests\Id_Should.cs" />
+    <Compile Include="Models\Users\RegularUserUnitTests\IsDeleted_Should.cs" />
+    <Compile Include="Models\Users\RegularUserUnitTests\Messages_Should.cs" />
+    <Compile Include="Models\Users\RegularUserUnitTests\Trips_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Data\DestionationServiceUnitTests\AddDestination_Should.cs" />
     <Compile Include="Services\Data\DestionationServiceUnitTests\Constructor_Should.cs" />
@@ -115,6 +140,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\TravelAdvisor.Business\TravelAdvisor.Business.Common\TravelAdvisor.Business.Common.csproj">
+      <Project>{2ef71e2e-b000-4125-87a1-ee4b7a1ccc85}</Project>
+      <Name>TravelAdvisor.Business.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\TravelAdvisor.Business\TravelAdvisor.Business.Data\TravelAdvisor.Business.Data.csproj">
       <Project>{5f8119a0-0448-4ba4-a7fe-910464478bb0}</Project>
       <Name>TravelAdvisor.Business.Data</Name>
@@ -129,7 +158,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Services\Logic\" />
   </ItemGroup>
   <Choose>

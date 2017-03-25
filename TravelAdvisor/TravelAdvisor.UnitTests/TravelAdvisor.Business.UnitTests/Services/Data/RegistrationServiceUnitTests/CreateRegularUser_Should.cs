@@ -14,6 +14,7 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.RegistrationServiceUnit
 		[Test]
 		public void InvokeAddMethod_WhenParamsAreValid()
 		{
+			//Arrange
 			var mockedRoleRepository = new Mock<IEFRepository<IdentityRole>>();
 			var mockedRegularUserRepository = new Mock<IEFRepository<RegularUser>>();
 			var mockedAdminRepository = new Mock<IEFRepository<Admin>>();
@@ -26,16 +27,18 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.RegistrationServiceUnit
 				mockedUnitOfWork.Object
 			);
 
-
+			//Act
 			mockedRegularUserRepository.Setup(repository => repository.Add(It.IsAny<RegularUser>()));
 			registrationService.CreateRegularUser("1");
 
+			//Assert
 			mockedRegularUserRepository.Verify(repository => repository.Add(It.IsAny<RegularUser>()), Times.Once);
 		}
 
 		[Test]
 		public void InvokeSaveChanges_WhenRegularUserIsValid()
 		{
+			//Arrange
 			var mockedRoleRepository = new Mock<IEFRepository<IdentityRole>>();
 			var mockedRegularUserRepository = new Mock<IEFRepository<RegularUser>>();
 			var mockedAdminRepository = new Mock<IEFRepository<Admin>>();
@@ -48,16 +51,18 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.RegistrationServiceUnit
 				mockedUnitOfWork.Object
 			);
 
-
+			//Act
 			mockedRegularUserRepository.Setup(repository => repository.Add(It.IsAny<RegularUser>()));
 			registrationService.CreateRegularUser("1");
 
+			//Assert
 			mockedUnitOfWork.Verify(unit => unit.SaveChanges(), Times.Once);
 		}
 
 		[Test]
 		public void ThrowException_WhenIdIsEmpty()
 		{
+			//Arrange
 			var mockedRoleRepository = new Mock<IEFRepository<IdentityRole>>();
 			var mockedRegularUserRepository = new Mock<IEFRepository<RegularUser>>();
 			var mockedAdminRepository = new Mock<IEFRepository<Admin>>();
@@ -70,6 +75,7 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.RegistrationServiceUnit
 				mockedUnitOfWork.Object
 			);
 
+			//Act & Assert
 			Assert.Throws<ArgumentException>(() => registrationService.CreateRegularUser(string.Empty));
 		}
 	}

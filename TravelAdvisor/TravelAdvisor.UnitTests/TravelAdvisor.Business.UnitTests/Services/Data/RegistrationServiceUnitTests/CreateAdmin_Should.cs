@@ -14,6 +14,7 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.RegistrationServiceUnit
 		[Test]
 		public void InvokeAddMethod_WhenParamsAreValid()
 		{
+			//Arrange
 			var mockedRoleRepository = new Mock<IEFRepository<IdentityRole>>();
 			var mockedRegularUserRepository = new Mock<IEFRepository<RegularUser>>();
 			var mockedAdminRepository = new Mock<IEFRepository<Admin>>();
@@ -26,15 +27,18 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.RegistrationServiceUnit
 				mockedUnitOfWork.Object
 			);
 
+			//Act
 			mockedAdminRepository.Setup(repository => repository.Add(It.IsAny<Admin>()));
 			registrationService.CreateAdmin("1");
 
+			//Assert
 			mockedAdminRepository.Verify(repository => repository.Add(It.IsAny<Admin>()), Times.Once);
 		}
 
 		[Test]
 		public void InvokeSaveChanges_WhenAdminIsValid()
 		{
+			//Arrange
 			var mockedRoleRepository = new Mock<IEFRepository<IdentityRole>>();
 			var mockedRegularUserRepository = new Mock<IEFRepository<RegularUser>>();
 			var mockedAdminRepository = new Mock<IEFRepository<Admin>>();
@@ -47,15 +51,18 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.RegistrationServiceUnit
 				mockedUnitOfWork.Object
 			);
 
+			//Act
 			mockedAdminRepository.Setup(repository => repository.Add(It.IsAny<Admin>()));
 			registrationService.CreateAdmin("1");
 
+			//Assert
 			mockedUnitOfWork.Verify(unit => unit.SaveChanges(), Times.Once);
 		}
 
 		[Test]
 		public void ThrowException_WhenIdIsEmpty()
 		{
+			//Arrange
 			var mockedRoleRepository = new Mock<IEFRepository<IdentityRole>>();
 			var mockedRegularUserRepository = new Mock<IEFRepository<RegularUser>>();
 			var mockedAdminRepository = new Mock<IEFRepository<Admin>>();
@@ -68,6 +75,7 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.RegistrationServiceUnit
 				mockedUnitOfWork.Object
 			);
 
+			//Act & Assert
 			Assert.Throws<ArgumentException>(() => registrationService.CreateAdmin(string.Empty));
 		}
 	}

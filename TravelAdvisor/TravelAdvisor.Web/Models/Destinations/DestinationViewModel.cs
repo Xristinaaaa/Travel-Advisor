@@ -13,7 +13,7 @@ namespace TravelAdvisor.Web.Models.Destinations
 		[StringLength(100, ErrorMessage = "Country name must be at least {2} characters long.", MinimumLength = 5)]
 		public string Country { get; set; }
 
-		public int countOfTrips { get; set; }
+		public int CountOfTrips { get; set; }
 		
 		public string ImageUrl { get; set; }
 

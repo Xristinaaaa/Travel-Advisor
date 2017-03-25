@@ -14,6 +14,7 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.RegistrationServiceUnit
 		[Test]
 		public void ThrowException_WhenEmailIsEmpty()
 		{
+			//Arrange
 			var mockedRoleRepository = new Mock<IEFRepository<IdentityRole>>();
 			var mockedRegularUserRepository = new Mock<IEFRepository<RegularUser>>();
 			var mockedAdminRepository = new Mock<IEFRepository<Admin>>();
@@ -26,12 +27,14 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.RegistrationServiceUnit
 				mockedUnitOfWork.Object
 			);
 
+			//Act & Assert
 			Assert.Throws<ArgumentException>(() => registrationService.CreateRegularUser(string.Empty));
 		}
 
 		[Test]
 		public void ReturnApplicationUser_WhenParamsAreValid()
 		{
+			//Arrange
 			var mockedRoleRepository = new Mock<IEFRepository<IdentityRole>>();
 			var mockedRegularUserRepository = new Mock<IEFRepository<RegularUser>>();
 			var mockedAdminRepository = new Mock<IEFRepository<Admin>>();
@@ -44,6 +47,7 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.RegistrationServiceUnit
 				mockedUnitOfWork.Object
 			);
 
+			//Act & Assert
 			Assert.IsInstanceOf<ApplicationUser>(registrationService.CreateApplicationUser("asda@abv.bg"));
 		}
 	}

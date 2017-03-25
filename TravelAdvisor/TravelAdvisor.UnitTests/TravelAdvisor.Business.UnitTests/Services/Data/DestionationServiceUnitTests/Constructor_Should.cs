@@ -13,28 +13,34 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.DestionationServiceUnit
 		[Test]
 		public void CreateDestinationService_WhenParamsAreValid()
 		{
+			//Arrange
 			var mockedRepository = new Mock<IEFRepository<Destination>>();
 			var mockedUnitOfWork = new Mock<IUnitOfWork>();
 			var destinationService = new DestinationService(mockedRepository.Object, mockedUnitOfWork.Object);
 
+			//Act & Assert
 			Assert.That(destinationService, Is.InstanceOf<DestinationService>());
 		}
 
 		[Test]
 		public void ThrowNullException_WhenRepositoryIsNull()
 		{
+			//Arranger
 			Mock<IEFRepository<Destination>> mockedRepository = null;
 			var mockedUnitOfWork = new Mock<IUnitOfWork>();
 
+			//Act & Assert
 			Assert.Throws<NullReferenceException>(() => new DestinationService(mockedRepository.Object, mockedUnitOfWork.Object));
 		}
 
 		[Test]
 		public void ThrowNullException_WhenUnitofworkIsNull()
 		{
+			//Arrange
 			var mockedRepository = new Mock<IEFRepository<Destination>>();
 			Mock<IUnitOfWork> mockedUnitOfWork = null;
 
+			//Act & Assert
 			Assert.Throws<NullReferenceException>(() => new DestinationService(mockedRepository.Object, mockedUnitOfWork.Object));
 		}
 	}

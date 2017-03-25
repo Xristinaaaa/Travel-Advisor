@@ -6,7 +6,7 @@
 
 		string Country { get; set; }
 
-		int countOfTrips { get; set; }
+		int CountOfTrips { get; set; }
 
 		string Description { get; set; }
 

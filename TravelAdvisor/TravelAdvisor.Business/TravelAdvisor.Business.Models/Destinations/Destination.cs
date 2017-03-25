@@ -13,10 +13,10 @@ namespace TravelAdvisor.Business.Models.Destinations
 		[MinLength(ValidationConstants.MinCountryLength), MaxLength(ValidationConstants.MaxCountryLength)]
 		public string Country { get; set; }
 
-		public int countOfTrips { get; set; }
+		public int CountOfTrips { get; set; }
 
 		[Required]
-		[MinLength(ValidationConstants.MinDestinationDescriptionLength), MaxLength(ValidationConstants.MinDestinationDescriptionLength)]
+		[MinLength(ValidationConstants.MinDestinationDescriptionLength), MaxLength(ValidationConstants.MaxDestinationDescriptionLength)]
 		public string Description { get; set; }
 
 		public string ImageUrl { get; set; }
