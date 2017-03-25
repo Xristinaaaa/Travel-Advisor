@@ -15,6 +15,7 @@ namespace TravelAdvisor.Web.Models.Destinations
 
 		public int CountOfTrips { get; set; }
 		
+		[DataType(DataType.ImageUrl)]
 		public string ImageUrl { get; set; }
 
 		public HttpPostedFileBase Image { get; set; }

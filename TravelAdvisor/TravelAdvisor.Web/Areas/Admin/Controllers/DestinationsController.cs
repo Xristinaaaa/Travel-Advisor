@@ -5,26 +5,22 @@ using TravelAdvisor.Business.Common.Constants;
 using TravelAdvisor.Business.Models.Destinations;
 using TravelAdvisor.Business.Services.Data.Contracts;
 using TravelAdvisor.Business.Services.Logic.Contracts;
+using TravelAdvisor.Web.Areas.Admin.Controllers.Base;
 using TravelAdvisor.Web.Models.Destinations;
 
 namespace TravelAdvisor.Web.Areas.Admin.Controllers
 {
 	[Authorize(Roles = "Admin")]
-	public class DestinationsController : Controller
+	public class DestinationsController : BaseController
 	{
-		private IMappingService mappingService;
-		private IImageService imageService;
 		private IDestinationService destinationService;
 		
 		public DestinationsController(IDestinationService destinationService, IMappingService mappingService, IImageService imageService)
+			:base(mappingService, imageService)
 		{
 			Guard.WhenArgument(destinationService, "Destination service is null.").IsNull().Throw();
-			Guard.WhenArgument(mappingService, "Mapping service is null.").IsNull().Throw();
-			Guard.WhenArgument(imageService, "Image service is null.").IsNull().Throw();
 
 			this.destinationService = destinationService;
-			this.mappingService = mappingService;
-			this.imageService = imageService;
 		}
 
 		// GET: Admin/Destinations
@@ -50,11 +46,11 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
 				return this.View(newDestination);
 			}
 			
-			var destinationToAdd = this.mappingService.Map<DestinationViewModel, Destination>(newDestination);
+			var destinationToAdd = this.MappingService.Map<DestinationViewModel, Destination>(newDestination);
 
 			if (newDestination.Image != null)
 			{
-				if (!this.imageService.IsImageFile(newDestination.Image))
+				if (!this.ImageService.IsImageFile(newDestination.Image))
 				{
 					ModelState.AddModelError("Image", "The uploaded file is not an image!");
 				}
@@ -69,7 +65,7 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
 			}
 
 			this.destinationService.AddDestination(destinationToAdd);
-			return Redirect("/");
+			return Redirect("/Admin/Administration");
 		}
 	}
 }

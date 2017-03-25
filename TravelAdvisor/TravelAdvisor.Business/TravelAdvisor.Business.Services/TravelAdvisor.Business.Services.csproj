@@ -101,9 +101,11 @@
     <Compile Include="Data\Contracts\IDestinationService.cs" />
     <Compile Include="Data\Contracts\IImageService.cs" />
     <Compile Include="Data\Contracts\IRegistrationService.cs" />
+    <Compile Include="Data\Contracts\ITripService.cs" />
     <Compile Include="Data\DestinationService.cs" />
     <Compile Include="Data\ImageService.cs" />
     <Compile Include="Data\RegistrationService.cs" />
+    <Compile Include="Data\TripService.cs" />
     <Compile Include="Logic\Contracts\IEmailService.cs" />
     <Compile Include="Logic\Contracts\IMappingService.cs" />
     <Compile Include="Logic\EmailService.cs" />

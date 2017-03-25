@@ -158,6 +158,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\Trips\" />
     <Folder Include="Services\Logic\" />
   </ItemGroup>
   <Choose>

@@ -15,5 +15,9 @@
 
 		public const int MinDestinationDescriptionLength = 10;
 		public const int MaxDestinationDescriptionLength = 10000;
+
+		//Trip
+		public const int MinTripDescriptionLength = 5;
+		public const int MaxTripDescriptionLength = 10000;
 	}
 }

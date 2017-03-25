@@ -63,7 +63,7 @@ footer {
 	width: 100%;
 }
 
-#createDescription {
+#createDescription, #createTrip {
     float: none;
     margin: 0 auto 30px auto;
 }
@@ -202,6 +202,9 @@ textarea.form-control:focus {
    color:    #888;
 }
 
+.imageUpload {
+	margin-top:20px;
+}
 .text-danger {
     color: #9C2B2E !important;
 	font-weight:bold;

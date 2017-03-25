@@ -9,6 +9,8 @@ namespace TravelAdvisor.Business.Services.Data.Contracts
 
 		IQueryable<Destination> GetAllDestinations();
 
+		Destination FindByCountry(string country);
+
 		void AddDestination(Destination destinationToAdd);
 	}
 }

@@ -44,7 +44,13 @@ namespace TravelAdvisor.Business.Data.Repositories
 			}
         }
 
-        public virtual IQueryable<T> All()
+		public T GetFirst(Expression<Func<T, bool>> filter)
+		{
+			var foundEntity = this.DbSet.FirstOrDefault(filter);
+			return foundEntity;
+		}
+
+		public virtual IQueryable<T> All()
         {
             return this.Entities;
         }
