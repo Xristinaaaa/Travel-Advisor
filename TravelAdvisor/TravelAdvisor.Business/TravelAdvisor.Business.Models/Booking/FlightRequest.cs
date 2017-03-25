@@ -10,9 +10,11 @@ namespace TravelAdvisor.Business.Models.Booking
 		[Key]
 		public int Id { get; set; }
 
-		public string FromDestination { get; set; }
+		[Required]
+		public string FromLocation { get; set; }
 
-		public string ToDestionation { get; set; }
+		[Required]
+		public string ToLocation { get; set; }
 
 		public DateTime Departure { get; set; }
 
@@ -23,7 +25,7 @@ namespace TravelAdvisor.Business.Models.Booking
 		public TravelClass TravelClass { get; set; }
 
 		[Required]
-		public int UserId { get; set; }
+		public string UserId { get; set; }
 		public virtual RegularUser User { get; set; }
 
 		public bool IsDeleted { get; set; }

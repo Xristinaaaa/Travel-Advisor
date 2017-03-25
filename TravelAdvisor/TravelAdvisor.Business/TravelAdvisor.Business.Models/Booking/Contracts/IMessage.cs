@@ -12,11 +12,11 @@ namespace TravelAdvisor.Business.Models.Booking.Contracts
 
 		string Text { get; set; }
 		
-		int SenderId { get; set; }
+		string SenderId { get; set; }
 
 		ApplicationUser Sender { get; set; }
 
-		int ReceiverId { get; set; }
+		string ReceiverId { get; set; }
 
 		ApplicationUser Receiver { get; set; }
 

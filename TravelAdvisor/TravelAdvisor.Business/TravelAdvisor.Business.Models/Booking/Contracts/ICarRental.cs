@@ -13,7 +13,7 @@ namespace TravelAdvisor.Business.Models.Booking.Contracts
 
 		string Location { get; set; }
 
-		int UserId { get; set; }
+		string UserId { get; set; }
 
 		RegularUser User { get; set; }
 

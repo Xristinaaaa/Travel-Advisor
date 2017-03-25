@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using TravelAdvisor.Business.Common.Constants;
 using TravelAdvisor.Business.Models.Cruises.Contracts;
 
 namespace TravelAdvisor.Business.Models.Cruises
@@ -16,9 +17,12 @@ namespace TravelAdvisor.Business.Models.Cruises
 		public string CruiseShip { get; set; }
 
 		[Required]
+		[MinLength(ValidationConstants.MinCruiseDescriptionLength), MaxLength(ValidationConstants.MaxCruiseDescriptionLength)]
 		public string Description { get; set; }
 
 		public string ImageUrl { get; set; }
+
+		public string ImagePath { get; set; }
 
 		[Required]
 		public decimal Price { get; set; }

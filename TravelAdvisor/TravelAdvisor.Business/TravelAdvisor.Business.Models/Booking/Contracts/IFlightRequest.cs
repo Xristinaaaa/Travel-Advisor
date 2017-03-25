@@ -7,9 +7,9 @@ namespace TravelAdvisor.Business.Models.Booking.Contracts
 	{
 		int Id { get; set; }
 
-		string FromDestination { get; set; }
+		string FromLocation { get; set; }
 
-		string ToDestionation { get; set; }
+		string ToLocation { get; set; }
 
 		DateTime Departure { get; set; }
 
@@ -19,7 +19,7 @@ namespace TravelAdvisor.Business.Models.Booking.Contracts
 
 		TravelClass TravelClass { get; set; }
 
-		int UserId { get; set; }
+		string UserId { get; set; }
 
 		RegularUser User { get; set; }
 

@@ -97,6 +97,47 @@
     <Compile Include="Data\Repository\Update_Should.cs" />
     <Compile Include="Data\UnitofWork\Constructor_Should.cs" />
     <Compile Include="Data\UnitofWork\SaveChanges_Should.cs" />
+    <Compile Include="Models\Booking\CarModel\Description_Should.cs" />
+    <Compile Include="Models\Booking\CarModel\Id_Should.cs" />
+    <Compile Include="Models\Booking\CarModel\ImageUrl_Should.cs" />
+    <Compile Include="Models\Booking\CarModel\IsDeleted_Should.cs" />
+    <Compile Include="Models\Booking\CarModel\Model_Shouldcs.cs" />
+    <Compile Include="Models\Booking\CarModel\RentalPrice_Should.cs" />
+    <Compile Include="Models\Booking\CarRentalModel\CarId_Should.cs" />
+    <Compile Include="Models\Booking\CarRentalModel\Car_Should.cs" />
+    <Compile Include="Models\Booking\CarRentalModel\Id_Should.cs" />
+    <Compile Include="Models\Booking\CarRentalModel\IsDeleted_Should.cs" />
+    <Compile Include="Models\Booking\CarRentalModel\Location_Should.cs" />
+    <Compile Include="Models\Booking\CarRentalModel\UserId_Should.cs" />
+    <Compile Include="Models\Booking\CarRentalModel\User_Should.cs" />
+    <Compile Include="Models\Booking\FlightRequestModel\FromLocation_Should.cs" />
+    <Compile Include="Models\Booking\FlightRequestModel\Id_Should.cs" />
+    <Compile Include="Models\Booking\FlightRequestModel\IsDeleted_Should.cs" />
+    <Compile Include="Models\Booking\FlightRequestModel\PeopleCount_Should.cs" />
+    <Compile Include="Models\Booking\FlightRequestModel\ToLocation_Should.cs" />
+    <Compile Include="Models\Booking\FlightRequestModel\TravelClass_Should.cs" />
+    <Compile Include="Models\Booking\FlightRequestModel\UserId_Should.cs" />
+    <Compile Include="Models\Booking\FlightRequestModel\User_Should.cs" />
+    <Compile Include="Models\Booking\MessageModel\Id_Should.cs" />
+    <Compile Include="Models\Booking\MessageModel\IsDeleted_Should.cs" />
+    <Compile Include="Models\Booking\MessageModel\ReceiverId_Should.cs" />
+    <Compile Include="Models\Booking\MessageModel\Receiver_Should.cs" />
+    <Compile Include="Models\Booking\MessageModel\SenderId_Should.cs" />
+    <Compile Include="Models\Booking\MessageModel\Sender_Should.cs" />
+    <Compile Include="Models\Booking\MessageModel\Text_Should.cs" />
+    <Compile Include="Models\Booking\MessageModel\Title_Should.cs" />
+    <Compile Include="Models\Booking\MessageModel\Topic_Should.cs" />
+    <Compile Include="Models\Cruises\CruiseLine_Should.cs" />
+    <Compile Include="Models\Cruises\CruiseShip_Should.cs" />
+    <Compile Include="Models\Cruises\DeparturePort_Should.cs" />
+    <Compile Include="Models\Cruises\Description_Should.cs" />
+    <Compile Include="Models\Cruises\FreePlaces_Should.cs" />
+    <Compile Include="Models\Cruises\Id_Should.cs" />
+    <Compile Include="Models\Cruises\ImagePath_Should.cs" />
+    <Compile Include="Models\Cruises\ImageUrl_Should.cs" />
+    <Compile Include="Models\Cruises\IsDeleted_Should.cs" />
+    <Compile Include="Models\Cruises\Price_Should.cs" />
+    <Compile Include="Models\Destinations\Constructor_Should.cs" />
     <Compile Include="Models\Destinations\CountOfTripsShould.cs" />
     <Compile Include="Models\Destinations\Country_Should.cs" />
     <Compile Include="Models\Destinations\Description_Should.cs" />
@@ -104,6 +145,17 @@
     <Compile Include="Models\Destinations\ImagePath_Should.cs" />
     <Compile Include="Models\Destinations\ImageUrl_Should.cs" />
     <Compile Include="Models\Destinations\IsDeleted_Should.cs" />
+    <Compile Include="Models\Destinations\Trips_Should.cs" />
+    <Compile Include="Models\Trips\Accomodation_Should.cs" />
+    <Compile Include="Models\Trips\Description_Should.cs" />
+    <Compile Include="Models\Trips\DestinationId_Should.cs" />
+    <Compile Include="Models\Trips\Destination_Should.cs" />
+    <Compile Include="Models\Trips\FreePlaces_Should.cs" />
+    <Compile Include="Models\Trips\Id_Should.cs" />
+    <Compile Include="Models\Trips\ImagePath_Should.cs" />
+    <Compile Include="Models\Trips\ImageUrl_Should.cs" />
+    <Compile Include="Models\Trips\IsDeleted_Should.cs" />
+    <Compile Include="Models\Trips\Price_Should.cs" />
     <Compile Include="Models\Users\AdminUnitTests\ApplicationUser_Should.cs" />
     <Compile Include="Models\Users\AdminUnitTests\CarRentals_Should.cs" />
     <Compile Include="Models\Users\AdminUnitTests\Constructor_Should.cs" />
@@ -126,6 +178,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Data\DestionationServiceUnitTests\AddDestination_Should.cs" />
     <Compile Include="Services\Data\DestionationServiceUnitTests\Constructor_Should.cs" />
+    <Compile Include="Services\Data\DestionationServiceUnitTests\FindByCountry_Should.cs" />
     <Compile Include="Services\Data\DestionationServiceUnitTests\GetAllDestinations_Should.cs" />
     <Compile Include="Services\Data\DestionationServiceUnitTests\GetDestinations_Should.cs" />
     <Compile Include="Services\Data\ImageServiceUnitTests\IsImageFile_Should.cs" />
@@ -134,6 +187,9 @@
     <Compile Include="Services\Data\RegistrationServiceUnitTests\CreateApplicationUser_Should.cs" />
     <Compile Include="Services\Data\RegistrationServiceUnitTests\CreateRegularUser_Should.cs" />
     <Compile Include="Services\Data\RegistrationServiceUnitTests\GetAllUserRoles_Should.cs" />
+    <Compile Include="Services\Data\TripServiceUnitTests\AddTrip_Should.cs" />
+    <Compile Include="Services\Data\TripServiceUnitTests\Constructor_Should.cs" />
+    <Compile Include="Services\Data\TripServiceUnitTests\GetAllTrips_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -158,7 +214,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Trips\" />
     <Folder Include="Services\Logic\" />
   </ItemGroup>
   <Choose>

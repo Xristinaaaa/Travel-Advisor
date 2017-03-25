@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using TravelAdvisor.Business.Common.Constants;
 using TravelAdvisor.Business.Models.Booking.Contracts;
 
 namespace TravelAdvisor.Business.Models.Booking
@@ -12,7 +13,8 @@ namespace TravelAdvisor.Business.Models.Booking
 		public string Model { get; set; }
 
 		public string ImageUrl { get; set; }
-
+		
+		[MinLength(ValidationConstants.MinCarDescriptionLength), MaxLength(ValidationConstants.MaxCarDescriptionLength)]
 		public string Description { get; set; }
 
 		[Required]
