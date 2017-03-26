@@ -25,26 +25,5 @@ namespace TravelAdvisor.Web.UnitTests.Controllers.HomeControllerUnitTests
 				.WithCallTo(c => c.Index())
 				.ShouldRenderDefaultView();
 		}
-
-		[Test]
-		public void ReturnViewWithModel()
-		{
-			// Arrange
-			var mockedDestinationService = new Mock<IDestinationService>();
-			var homeController = new HomeController(mockedDestinationService.Object);
-
-			// Act
-			var result = new List<Destination>() { new Destination(), new Destination() };
-			mockedDestinationService.Setup(x => x.GetDestinations(0, 6))
-				.Returns(result.AsQueryable());
-
-			var destinationsModel = new DestinationsListViewModel();
-
-			// Assert
-			homeController
-				.WithCallTo(c => c.Index())
-				.ShouldRenderDefaultView()
-				.WithModel(destinationsModel);
-		}
 	}
 }

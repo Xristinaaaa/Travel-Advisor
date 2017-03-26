@@ -31,6 +31,11 @@ namespace TravelAdvisor.Business.Services.Data
 			}
 		}
 
+		public Trip FindTrip(int id)
+		{
+			return this.tripRepository.GetFirst(x => x.Id == id);
+		}
+
 		public IQueryable<Trip> GetAllTrips()
 		{
 			return this.tripRepository.All();

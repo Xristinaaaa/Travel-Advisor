@@ -1,11 +1,16 @@
 ﻿using System;
 using TravelAdvisor.Business.Models.Destinations;
+using TravelAdvisor.Business.Models.Users;
 
 namespace TravelAdvisor.Business.Models.Trips.Contracts
 {
 	public interface ITrip
 	{
 		int Id { get; set; }
+
+		string RegularUserId { get; set; }
+
+		RegularUser User { get; set; }
 
 		int DestinationId { get; set; }
 

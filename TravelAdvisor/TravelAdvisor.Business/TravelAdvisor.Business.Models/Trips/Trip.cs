@@ -1,10 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Web;
 using TravelAdvisor.Business.Common.Constants;
 using TravelAdvisor.Business.Models.Destinations;
 using TravelAdvisor.Business.Models.Trips.Contracts;
+using TravelAdvisor.Business.Models.Users;
 
 namespace TravelAdvisor.Business.Models.Trips
 {
@@ -13,7 +12,12 @@ namespace TravelAdvisor.Business.Models.Trips
 		[Key]
 		public int Id { get; set; }
 
+		public string RegularUserId { get; set; }
+
+		public virtual RegularUser User { get; set; }
+
 		public int DestinationId { get; set; }
+
 		public virtual Destination Destination { get; set; }
 
 		[Required]

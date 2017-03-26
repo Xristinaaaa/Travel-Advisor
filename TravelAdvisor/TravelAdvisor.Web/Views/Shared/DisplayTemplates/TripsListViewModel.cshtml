@@ -17,12 +17,12 @@
 				}
 			</a>
 		</figure>
-
+		
 		@if (User.IsInRole("RegularUser"))
 		{
 			<div class="parallax-content-1">
 				<div class="animated fadeInDown">
-					@Html.ActionLink("Add to wishlist", "Index", "Manage", new { @area = "" }, new { @class = "button-intro" })
+					@Html.ActionLink("Add to wishlist", "AddToWishList", "Manage", new { @area = "", id = item.Id }, new { @class = "button-intro" })
 				</div>
 			</div>
 		}

@@ -8,5 +8,7 @@ namespace TravelAdvisor.Business.Services.Data.Contracts
 		IQueryable<Trip> GetAllTrips();
 
 		void AddTrip(Trip tripToAdd);
+
+		Trip FindTrip(int id);
 	}
 }

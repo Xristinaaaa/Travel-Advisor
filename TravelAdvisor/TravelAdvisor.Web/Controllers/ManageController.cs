@@ -1,19 +1,44 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Expressions;
+using Bytes2you.Validation;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TravelAdvisor.Business.Identity;
+using TravelAdvisor.Business.Models.Trips;
+using TravelAdvisor.Business.Services.Data.Contracts;
+using TravelAdvisor.Business.Services.Logic.Contracts;
 using TravelAdvisor.Web.Models.Manage;
+using TravelAdvisor.Web.Models.Trips;
 
 namespace TravelAdvisor.Web.Controllers
 {
     [Authorize]
     public class ManageController : Controller
     {
-        public ApplicationSignInManager SignInManager
+		private IUserService userService;
+		private IMappingService mappingService;
+		private IDestinationService destinationService;
+		private ITripService tripService;
+
+		public ManageController(IUserService userService, IMappingService mappingService, 
+			IDestinationService destinationService, ITripService tripService)
+		{
+			Guard.WhenArgument(userService, "User service is null.").IsNull().Throw();
+			Guard.WhenArgument(mappingService, "Mapping service is null.").IsNull().Throw();
+			Guard.WhenArgument(destinationService, "Destination service is null.").IsNull().Throw();
+			Guard.WhenArgument(tripService, "Trip service is null.").IsNull().Throw();
+
+			this.userService = userService;
+			this.mappingService = mappingService;
+			this.destinationService = destinationService;
+			this.tripService = tripService;
+		}
+
+		public ApplicationSignInManager SignInManager
         {
             get
             {
@@ -35,28 +60,73 @@ namespace TravelAdvisor.Web.Controllers
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
                 : message == ManageMessageId.Error ? "An error has occurred."
-                : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
                 : "";
 
             var userId = User.Identity.GetUserId();
-            var model = new IndexViewModel
-            {
-                HasPassword = HasPassword(),
-                PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
-                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
-                Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
-            };
-            return View(model);
+
+			IndexViewModel model;
+			if (TempData["Model"] != null)
+			{
+				model = (IndexViewModel)TempData["Model"];
+			}
+			else
+			{
+				model = new IndexViewModel();
+			}
+
+			model.HasPassword = HasPassword();
+			model.Logins = await UserManager.GetLoginsAsync(userId);
+			model.BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId);
+
+			if (User.IsInRole("RegularUser") && model.UserTrips == null)
+			{
+				var userTrips = userService.GetUserTrips(userId);
+
+				var userTripsModel = new TripsListViewModel();
+
+				List<TripItemViewModel> tripsToAdd = new List<TripItemViewModel>();
+
+				foreach (var item in userTrips)
+				{
+					TripItemViewModel userTrip = this.mappingService.Map<Trip, TripItemViewModel>(item);
+					tripsToAdd.Add(userTrip);
+				}
+
+				userTripsModel.Trips = tripsToAdd;
+				model.UserTrips = userTripsModel;
+			}
+
+			TempData.Remove("Model");
+			return View(model);
         }
 
-		// Post: /Manage
-		public ActionResult AddToWishlist()
+		//Post /Manage
+		public ActionResult AddToWishList(int id)
 		{
-			return View();
+			var model = new IndexViewModel();
+			var userId = this.User.Identity.GetUserId();
+
+			Trip tripToService = this.tripService.FindTrip(id);
+			this.userService.AddTripToWishlist(tripToService, userId);
+
+			TripsListViewModel userTripsModel = new TripsListViewModel();
+			var userTrips = userService.GetUserTrips(userId);
+
+			List<TripItemViewModel> allTrips = new List<TripItemViewModel>();
+
+			foreach (var item in userTrips)
+			{
+				TripItemViewModel userTrip = this.mappingService.Map<Trip, TripItemViewModel>(item);
+				allTrips.Add(userTrip);
+			}
+
+			userTripsModel.Trips = allTrips;
+
+			model.UserTrips = userTripsModel;
+
+			TempData["Model"] = model;
+			return RedirectToAction("Index");
 		}
 
 		// GET: /Manage/ChangePassword
@@ -113,8 +183,7 @@ namespace TravelAdvisor.Web.Controllers
                 }
                 AddErrors(result);
             }
-
-            // If we got this far, something failed, redisplay form
+			
             return View(model);
         }
 

@@ -315,7 +315,6 @@
     <Content Include="Content\Views\Home\home.css" />
     <Content Include="Content\Views\Home\services.css" />
     <Content Include="Content\Views\Home\testimonials.css" />
-    <Content Include="Content\Views\Manage\profile.css" />
     <Content Include="Content\Views\Trips\allTrips.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\FontAwesome\fontawesome-webfont.svg" />

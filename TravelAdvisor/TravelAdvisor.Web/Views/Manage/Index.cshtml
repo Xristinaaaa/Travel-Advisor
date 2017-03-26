@@ -1,6 +1,10 @@
 ﻿@model TravelAdvisor.Web.Models.Manage.IndexViewModel
 @{
-    ViewBag.Title = "Manage";
+	ViewBag.Title = "Manage";	
+}
+
+@section styles {
+	@Styles.Render("~/Content/trips")
 }
 
 <p class="text-success">@ViewBag.StatusMessage</p>
@@ -16,3 +20,32 @@
             }
     </div>
 </div>
+
+@if (User.IsInRole("RegularUser"))
+{
+	if (Model.UserTrips.Trips != null)
+	{
+		foreach (var item in Model.UserTrips.Trips)
+		{
+			<div class="flex">
+				<figure>
+					<a href="" target="_blank">
+						@if (item.ImagePath != null)
+						{
+							<img src="@item.ImagePath" alt="">
+						}
+
+						@if (item.ImageUrl != null)
+						{
+							<img src="@Url.Content(item.ImageUrl)" alt="">
+						}
+					</a>
+				</figure>
+
+				<h4 class="col-md-12">Hotel: @item.Accomodation</h4>
+				<h4 class="col-md-12">Price: @item.Price$</h4>
+				<h4 class="col-md-12">From: @item.StartDate.Date.ToString("dd.MM.yyy") - To: @item.EndDate.Date.ToString("dd.MM.yyy")</h4>
+			</div>
+		}
+	}
+}
