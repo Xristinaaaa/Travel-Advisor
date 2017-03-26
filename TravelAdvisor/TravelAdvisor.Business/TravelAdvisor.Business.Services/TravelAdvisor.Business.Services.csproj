@@ -108,9 +108,7 @@
     <Compile Include="Data\RegistrationService.cs" />
     <Compile Include="Data\TripService.cs" />
     <Compile Include="Data\UserService.cs" />
-    <Compile Include="Logic\Contracts\IEmailService.cs" />
     <Compile Include="Logic\Contracts\IMappingService.cs" />
-    <Compile Include="Logic\EmailService.cs" />
     <Compile Include="Logic\MappingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

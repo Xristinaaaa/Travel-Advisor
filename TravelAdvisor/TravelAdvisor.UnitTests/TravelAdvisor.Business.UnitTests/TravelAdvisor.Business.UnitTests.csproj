@@ -189,7 +189,10 @@
     <Compile Include="Services\Data\RegistrationServiceUnitTests\GetAllUserRoles_Should.cs" />
     <Compile Include="Services\Data\TripServiceUnitTests\AddTrip_Should.cs" />
     <Compile Include="Services\Data\TripServiceUnitTests\Constructor_Should.cs" />
+    <Compile Include="Services\Data\TripServiceUnitTests\FindTrip_Should.cs" />
     <Compile Include="Services\Data\TripServiceUnitTests\GetAllTrips_Should.cs" />
+    <Compile Include="Services\Data\UserServiceUnitTests\Constructor_Should.cs" />
+    <Compile Include="Services\Data\UserServiceUnitTests\GetUserTrips_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -213,9 +216,7 @@
       <Name>TravelAdvisor.Business.Services</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\Logic\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
