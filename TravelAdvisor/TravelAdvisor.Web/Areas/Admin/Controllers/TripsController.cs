@@ -57,6 +57,14 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
 		{
 			if (!this.ModelState.IsValid)
 			{
+				var countries = new List<string>();
+
+				foreach (var item in destinationService.GetAllDestinations().ToList())
+				{
+					countries.Add(item.Country);
+				}
+
+				this.ViewBag.Destinations = countries;
 				return this.View(newTrip);
 			}
 
@@ -73,10 +81,8 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
 					ModelState.AddModelError("Image", "The uploaded file is not an image!");
 				}
 
-				var fileName = Path.GetFileName(newTrip.ImagePath.FileName);
-				var path = Path.Combine(this.Server.MapPath("~/Images/"+ fileName));
+				var path = this.ImageService.MapPath("~/Images"+tripToAdd.ImagePath);
 				newTrip.ImagePath.SaveAs(path);
-				tripToAdd.ImagePath = path;
 			}
 
 			if (newTrip.ImageUrl == null && newTrip.ImagePath == null)

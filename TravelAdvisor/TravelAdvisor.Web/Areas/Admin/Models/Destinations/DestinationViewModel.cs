@@ -4,7 +4,7 @@ using AutoMapper;
 using TravelAdvisor.Business.Models.Destinations;
 using TravelAdvisor.Web.App_Start.AutoMapper;
 
-namespace TravelAdvisor.Web.Models.Destinations
+namespace TravelAdvisor.Web.Areas.Admin.Models.Destinations
 {
 	public class DestinationViewModel : IMapFrom<Destination>, IHaveCustomMappings
 	{
@@ -14,7 +14,7 @@ namespace TravelAdvisor.Web.Models.Destinations
 		public string Country { get; set; }
 
 		public int CountOfTrips { get; set; }
-		
+
 		[DataType(DataType.ImageUrl)]
 		public string ImageUrl { get; set; }
 

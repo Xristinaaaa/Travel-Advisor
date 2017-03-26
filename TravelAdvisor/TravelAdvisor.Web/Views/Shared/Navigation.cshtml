@@ -24,7 +24,7 @@
 						@Html.ActionLink("Tours", "", "")
 						<ul class="dropdown-menu" role="menu">
 							<li>@Html.ActionLink("Cruises", "", "")</li>
-							<li>@Html.ActionLink("Trips", "", "")</li>
+							<li>@Html.ActionLink("Trips", "Index", "Trips", new { area = "" }, new { Href = "/ListTrips" })</li>
 						</ul>
 					</li>
 					<li class="dropdown-toggle">

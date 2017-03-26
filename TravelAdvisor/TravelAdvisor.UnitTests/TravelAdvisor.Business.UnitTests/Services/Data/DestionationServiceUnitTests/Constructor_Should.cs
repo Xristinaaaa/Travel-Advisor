@@ -25,7 +25,7 @@ namespace TravelAdvisor.Business.UnitTests.Services.Data.DestionationServiceUnit
 		[Test]
 		public void ThrowNullException_WhenRepositoryIsNull()
 		{
-			//Arranger
+			//Arrange
 			Mock<IEFRepository<Destination>> mockedRepository = null;
 			var mockedUnitOfWork = new Mock<IUnitOfWork>();
 

@@ -1,0 +1,22 @@
+﻿@model TravelAdvisor.Web.Models.Trips.TripsListViewModel
+
+
+@foreach (var item in Model.Trips)
+{
+	<div class="flex">
+		<figure>
+			<figcaption class="overlay">item.Destination</figcaption>
+			<a href="" target="_blank">
+				@if (item.ImagePath != null)
+				{
+					<img src="@item.ImagePath" alt="">
+				}
+
+				@if (item.ImageUrl != null)
+				{
+					<img src="@Url.Content(item.ImageUrl)" alt="">
+				}
+			</a>
+		</figure>
+	</div>
+}

@@ -273,10 +273,12 @@
     <Compile Include="Areas\Admin\Controllers\Base\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\DestinationsController.cs" />
     <Compile Include="Areas\Admin\Controllers\TripsController.cs" />
+    <Compile Include="Areas\Admin\Models\Destinations\DestinationViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Trips\TripViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ListTripsController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -286,7 +288,7 @@
     <Compile Include="Models\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\Account\ForgotViewModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
-    <Compile Include="Models\Destinations\DestinationViewModel.cs" />
+    <Compile Include="Models\Destinations\DestinationItemViewModel.cs" />
     <Compile Include="Models\Destinations\DestinationsListViewModel.cs" />
     <Compile Include="Models\Manage\ChangePasswordViewModel.cs" />
     <Compile Include="Models\Manage\ConfigureTwoFactorViewModel.cs" />
@@ -296,6 +298,8 @@
     <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Account\ResetPasswordViewModel.cs" />
     <Compile Include="Models\Manage\SetPasswordViewModel.cs" />
+    <Compile Include="Models\Trips\TripItemViewModel.cs" />
+    <Compile Include="Models\Trips\TripsListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -316,6 +320,7 @@
     <Content Include="Content\Views\Home\home.css" />
     <Content Include="Content\Views\Home\services.css" />
     <Content Include="Content\Views\Home\testimonials.css" />
+    <Content Include="Content\Views\Trips\allTrips.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\FontAwesome\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -326,9 +331,9 @@
     <Content Include="Images\logo.png" />
     <Content Include="Images\Shared\footer.png" />
     <Content Include="Images\Shared\headerBackground.png" />
-    <Content Include="Images\Shared\post-37.jpg" />
     <Content Include="Images\Shared\services.png" />
     <Content Include="Images\Shared\sign.png" />
+    <Content Include="Images\Shared\trips.png" />
     <Content Include="Libraries\Kendo.Mvc.dll" />
     <Content Include="Libraries\Kendo.Mvc.xml" />
     <Content Include="Scripts\bootstrap.js" />
@@ -456,8 +461,11 @@
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Views\ListTrips\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\TripsListViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\Images\" />
     <Folder Include="Content\Views\Manage\" />
   </ItemGroup>
   <ItemGroup>

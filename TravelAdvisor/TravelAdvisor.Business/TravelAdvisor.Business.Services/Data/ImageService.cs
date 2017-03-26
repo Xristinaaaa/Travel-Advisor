@@ -24,5 +24,10 @@ namespace TravelAdvisor.Business.Services.Data
 
 			return false;
 		}
+
+		public string MapPath(string path)
+		{
+			return HttpContext.Current.Server.MapPath(path);
+		}
 	}
 }

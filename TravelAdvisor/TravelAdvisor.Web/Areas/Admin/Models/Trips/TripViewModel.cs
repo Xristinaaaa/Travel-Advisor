@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 using AutoMapper;
-using TravelAdvisor.Business.Common.Constants;
 using TravelAdvisor.Business.Models.Destinations;
 using TravelAdvisor.Business.Models.Trips;
 using TravelAdvisor.Web.App_Start.AutoMapper;

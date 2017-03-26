@@ -1,0 +1,18 @@
+﻿@model TravelAdvisor.Web.Models.Trips.TripsListViewModel
+@{
+	ViewBag.Title = "All trips";
+}
+
+@section styles {
+	@Styles.Render("~/Content/trips")
+}
+
+<div class="allTrips">
+	<h2 class="heading">Discover all trips</h2>
+	<div class="container">
+		@if (Model.Trips != null)
+		{
+			@Html.DisplayFor(c => Model)
+		}
+	</div>
+</div>

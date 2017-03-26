@@ -18,11 +18,9 @@ namespace TravelAdvisor.Business.Models.Booking
 		[MinLength(ValidationConstants.MinMessageText), MaxLength(ValidationConstants.MaxMessageText)]
 		public string Text { get; set; }
 
-		[Required]
 		public string SenderId { get; set; }
 		public ApplicationUser Sender { get; set; }
-
-		[Required]
+		
 		public string ReceiverId { get; set; }
 		public ApplicationUser Receiver { get; set; }
 

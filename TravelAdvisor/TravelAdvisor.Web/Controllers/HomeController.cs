@@ -4,6 +4,7 @@ using AutoMapper.QueryableExtensions;
 using Bytes2you.Validation;
 using TravelAdvisor.Business.Common.Constants;
 using TravelAdvisor.Business.Services.Data.Contracts;
+using TravelAdvisor.Web.Areas.Admin.Models.Destinations;
 using TravelAdvisor.Web.Models.Destinations;
 
 namespace TravelAdvisor.Web.Controllers
@@ -29,7 +30,8 @@ namespace TravelAdvisor.Web.Controllers
 			{
 				var destinations = destinationService.GetDestinations(0, ControllersConstants.ItemsPerPage)
 					.Where(d => d.IsDeleted == false)
-					.ProjectTo<DestinationViewModel>()
+					.ProjectTo<DestinationItemViewModel>()
+					.OrderBy(x=>x.Country)
 					.ToList();
 
 				var destinationsModel = new DestinationsListViewModel() { Destinations = destinations };
@@ -48,7 +50,7 @@ namespace TravelAdvisor.Web.Controllers
 		{
 			var moreDestinations = destinationService.GetDestinations(0, destinationsCount + ControllersConstants.DestinationsBatchIncrease)
 					.Where(d => d.IsDeleted == false)
-					.ProjectTo<DestinationViewModel>()
+					.ProjectTo<DestinationItemViewModel>()
 					.ToList();
 
 			destinationsCount += ControllersConstants.DestinationsBatchIncrease;

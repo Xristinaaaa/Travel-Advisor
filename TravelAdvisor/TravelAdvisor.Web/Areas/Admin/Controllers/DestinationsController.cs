@@ -6,7 +6,7 @@ using TravelAdvisor.Business.Models.Destinations;
 using TravelAdvisor.Business.Services.Data.Contracts;
 using TravelAdvisor.Business.Services.Logic.Contracts;
 using TravelAdvisor.Web.Areas.Admin.Controllers.Base;
-using TravelAdvisor.Web.Models.Destinations;
+using TravelAdvisor.Web.Areas.Admin.Models.Destinations;
 
 namespace TravelAdvisor.Web.Areas.Admin.Controllers
 {
@@ -55,7 +55,7 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
 					ModelState.AddModelError("Image", "The uploaded file is not an image!");
 				}
 
-				var path = Path.Combine(this.Server.MapPath(destinationToAdd.ImagePath));
+				var path = this.ImageService.MapPath(destinationToAdd.ImagePath);
 				newDestination.Image.SaveAs(path);
 			}
 

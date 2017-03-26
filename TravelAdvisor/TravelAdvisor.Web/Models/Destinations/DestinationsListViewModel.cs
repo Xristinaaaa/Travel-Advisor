@@ -4,6 +4,6 @@ namespace TravelAdvisor.Web.Models.Destinations
 {
 	public class DestinationsListViewModel
 	{
-		public IEnumerable<DestinationViewModel> Destinations { get; set; }
+		public IEnumerable<DestinationItemViewModel> Destinations { get; set; }
 	}
 }

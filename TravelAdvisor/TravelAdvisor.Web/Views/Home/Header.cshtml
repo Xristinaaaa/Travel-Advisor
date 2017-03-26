@@ -3,8 +3,8 @@
 		<div class="animated fadeInDown">
 			<h1 class="page-title">We Create Memories</h1>
 			<p class="animated fadeInDown">CHOOSE YOUR DESTINATION!</p>
-			<a class="button-intro" href="">Trips</a>
-			<a class="button-intro" href="">Cruises</a>
+			@Html.ActionLink("Trips", "Index", "ListTrips", new { @area = "" }, new { @class = "button-intro" })
+			@Html.ActionLink("Cruises", "", "", new { @class="button-intro"})
 		</div>
 	</div>
 </section>
