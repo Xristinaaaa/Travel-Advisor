@@ -1,5 +1,4 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using TravelAdvisor.Business.Models.Destinations;
 using TravelAdvisor.Web.App_Start.AutoMapper;
 

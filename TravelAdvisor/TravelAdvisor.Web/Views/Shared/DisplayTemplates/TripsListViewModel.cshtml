@@ -5,7 +5,6 @@
 {
 	<div class="flex">
 		<figure>
-			<figcaption class="overlay">item.Destination</figcaption>
 			<a href="" target="_blank">
 				@if (item.ImagePath != null)
 				{
@@ -18,5 +17,19 @@
 				}
 			</a>
 		</figure>
+
+		@if (User.IsInRole("RegularUser"))
+		{
+			<div class="parallax-content-1">
+				<div class="animated fadeInDown">
+					@Html.ActionLink("Add to wishlist", "Index", "Manage", new { @area = "" }, new { @class = "button-intro" })
+				</div>
+			</div>
+		}
+
+		<h4 class="col-md-12">Hotel: @item.Accomodation</h4>
+		<div class="col-md-12">Description: @item.Description</div>
+		<h4 class="col-md-12">Price: @item.Price$</h4>
+		<h4 class="col-md-12">From: @item.StartDate.Date.ToString("dd.MM.yyy") - To: @item.EndDate.Date.ToString("dd.MM.yyy")</h4>
 	</div>
 }

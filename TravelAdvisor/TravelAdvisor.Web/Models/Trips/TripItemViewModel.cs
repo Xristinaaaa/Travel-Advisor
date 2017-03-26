@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Web;
 using AutoMapper;
 using TravelAdvisor.Business.Models.Trips;
 using TravelAdvisor.Web.App_Start.AutoMapper;
@@ -8,6 +7,8 @@ namespace TravelAdvisor.Web.Models.Trips
 {
 	public class TripItemViewModel : IMapFrom<Trip>, IHaveCustomMappings
 	{
+		public string Destination { get; set; }
+
 		public string Description { get; set; }
 
 		public string ImagePath { get; set; }

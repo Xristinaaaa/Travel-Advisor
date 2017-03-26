@@ -80,9 +80,10 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
 				{
 					ModelState.AddModelError("Image", "The uploaded file is not an image!");
 				}
-
-				var path = this.ImageService.MapPath("~/Images"+tripToAdd.ImagePath);
+				
+				var path = this.ImageService.MapPath(tripToAdd.ImagePath).Substring(0,73)+ "\\Images\\"+newTrip.ImagePath.FileName;
 				newTrip.ImagePath.SaveAs(path);
+				tripToAdd.ImagePath = "~/Images/" + newTrip.ImagePath.FileName;
 			}
 
 			if (newTrip.ImageUrl == null && newTrip.ImagePath == null)
