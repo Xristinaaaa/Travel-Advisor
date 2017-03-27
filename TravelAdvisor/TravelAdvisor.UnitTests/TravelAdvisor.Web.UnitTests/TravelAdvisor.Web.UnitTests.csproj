@@ -146,6 +146,9 @@
     <Compile Include="Controllers\AccountControllerUnitTests\Constructor_Should.cs" />
     <Compile Include="Controllers\AccountControllerUnitTests\Login_Should.cs" />
     <Compile Include="Controllers\AccountControllerUnitTests\Register_Should.cs" />
+    <Compile Include="Controllers\ErrorPagesControllerUnitTests\ErrorPage500_Should.cs" />
+    <Compile Include="Controllers\ErrorPagesControllerUnitTests\ErrorPage400_Should.cs" />
+    <Compile Include="Controllers\ErrorPagesControllerUnitTests\ErrorPage404_Should.cs" />
     <Compile Include="Controllers\HomeControllerUnitTests\Constructor_Should.cs" />
     <Compile Include="Controllers\HomeControllerUnitTests\Index_Should.cs" />
     <Compile Include="Controllers\ListTripsControllerUnitTests\Constructor_Should.cs" />

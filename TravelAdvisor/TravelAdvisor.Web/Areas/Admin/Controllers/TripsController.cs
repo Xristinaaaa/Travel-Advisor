@@ -53,6 +53,7 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
 		// Post: Admin/Trips/Create
 		[HttpPost]
 		[ValidateAntiForgeryToken]
+		[ValidateInput(true)]
 		public ActionResult Create(TripViewModel newTrip)
 		{
 			if (!this.ModelState.IsValid)

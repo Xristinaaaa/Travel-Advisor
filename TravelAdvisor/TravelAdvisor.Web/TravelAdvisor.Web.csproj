@@ -276,6 +276,7 @@
     <Compile Include="Areas\Admin\Models\Destinations\DestinationViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Trips\TripViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ErrorPagesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ListTripsController.cs" />
@@ -453,6 +454,9 @@
     <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Views\ListTrips\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\TripsListViewModel.cshtml" />
+    <Content Include="Views\ErrorPages\Page404.cshtml" />
+    <Content Include="Views\ErrorPages\Page400.cshtml" />
+    <Content Include="Views\ErrorPages\Page500.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Images\" />
