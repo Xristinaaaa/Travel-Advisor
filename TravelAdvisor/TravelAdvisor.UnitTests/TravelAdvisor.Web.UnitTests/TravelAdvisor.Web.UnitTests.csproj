@@ -141,6 +141,8 @@
     <Compile Include="Admin\Controllers\DestinationsControllerUnitTests\Constructor_Shouldcs.cs" />
     <Compile Include="Admin\Controllers\DestinationsControllerUnitTests\Create_Should.cs" />
     <Compile Include="Admin\Controllers\DestinationsControllerUnitTests\Index_Shoudl.cs" />
+    <Compile Include="Admin\Controllers\TripsControllerUnitTests\Constructor_Should.cs" />
+    <Compile Include="Admin\Controllers\TripsControllerUnitTests\Index_Should.cs" />
     <Compile Include="Controllers\AccountControllerUnitTests\Constructor_Should.cs" />
     <Compile Include="Controllers\AccountControllerUnitTests\Login_Should.cs" />
     <Compile Include="Controllers\AccountControllerUnitTests\Register_Should.cs" />
