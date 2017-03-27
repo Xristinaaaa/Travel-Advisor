@@ -10,7 +10,7 @@ namespace TravelAdvisor.Web.UnitTests.Controllers.HomeControllerUnitTests
 	public class Constructor_Should
 	{
 		[Test]
-		public void CreateAccountController_WhenParamsAreValid()
+		public void CreateHomeController_WhenParamsAreValid()
 		{
 			// Arrange
 			var mockedDestinationService = new Mock<IDestinationService>();

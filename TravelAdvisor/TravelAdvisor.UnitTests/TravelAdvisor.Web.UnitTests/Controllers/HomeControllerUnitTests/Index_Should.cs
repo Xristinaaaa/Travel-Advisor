@@ -6,7 +6,6 @@ using TestStack.FluentMVCTesting;
 using TravelAdvisor.Business.Models.Destinations;
 using TravelAdvisor.Business.Services.Data.Contracts;
 using TravelAdvisor.Web.Controllers;
-using TravelAdvisor.Web.Models.Destinations;
 
 namespace TravelAdvisor.Web.UnitTests.Controllers.HomeControllerUnitTests
 {
@@ -24,6 +23,20 @@ namespace TravelAdvisor.Web.UnitTests.Controllers.HomeControllerUnitTests
 			homeController
 				.WithCallTo(c => c.Index())
 				.ShouldRenderDefaultView();
+		}
+
+		[Test]
+		public void InvokeServiceMethod()
+		{
+			// Arrange
+			var mockedDestinationService = new Mock<IDestinationService>();
+			var homeController = new HomeController(mockedDestinationService.Object);
+
+			//Act
+			homeController.Index();
+
+			//Assert
+			mockedDestinationService.Verify(x => x.GetAllDestinations(), Times.Once());
 		}
 	}
 }

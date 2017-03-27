@@ -134,13 +134,21 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Admin\Controllers\AdministrationControllerUnitTests\Index_Should.cs" />
+    <Compile Include="Admin\Controllers\BaseControllerUnitTests\Constructor_Should.cs" />
+    <Compile Include="Admin\Controllers\BaseControllerUnitTests\ImageService_Should.cs" />
+    <Compile Include="Admin\Controllers\BaseControllerUnitTests\MappinService_Should.cs" />
+    <Compile Include="Admin\Controllers\DestinationsControllerUnitTests\Constructor_Shouldcs.cs" />
+    <Compile Include="Admin\Controllers\DestinationsControllerUnitTests\Create_Should.cs" />
+    <Compile Include="Admin\Controllers\DestinationsControllerUnitTests\Index_Shoudl.cs" />
     <Compile Include="Controllers\AccountControllerUnitTests\Constructor_Should.cs" />
     <Compile Include="Controllers\AccountControllerUnitTests\Login_Should.cs" />
     <Compile Include="Controllers\AccountControllerUnitTests\Register_Should.cs" />
     <Compile Include="Controllers\HomeControllerUnitTests\Constructor_Should.cs" />
-    <Compile Include="Controllers\HomeControllerUnitTests\GetDestinations_Should.cs" />
     <Compile Include="Controllers\HomeControllerUnitTests\Index_Should.cs" />
-    <Compile Include="Controllers\UnitTest1.cs" />
+    <Compile Include="Controllers\ListTripsControllerUnitTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\ListTripsControllerUnitTests\Index_Should..cs" />
+    <Compile Include="Controllers\ManageControllerUnitTests\Constructor_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
