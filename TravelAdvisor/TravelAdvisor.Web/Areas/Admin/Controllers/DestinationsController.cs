@@ -39,6 +39,7 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
 		// Post: Admin/Destinations/Create
 		[HttpPost]
 		[ValidateAntiForgeryToken]
+		[ValidateInput(true)]
 		public ActionResult Create(DestinationViewModel newDestination)
 		{
 			if (!this.ModelState.IsValid)
