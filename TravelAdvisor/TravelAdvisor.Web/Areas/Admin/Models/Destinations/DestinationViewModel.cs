@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web;
+using System.Web.Mvc;
 using AutoMapper;
 using TravelAdvisor.Business.Models.Destinations;
 using TravelAdvisor.Web.App_Start.AutoMapper;
@@ -23,6 +24,7 @@ namespace TravelAdvisor.Web.Areas.Admin.Models.Destinations
 		[DataType(DataType.MultilineText)]
 		[Required(ErrorMessage = "Description is required")]
 		[StringLength(10000, ErrorMessage = "Description name must be at least {2} characters long.", MinimumLength = 10)]
+		[AllowHtml]
 		public string Description { get; set; }
 
 		public bool IsDeleted { get; set; }

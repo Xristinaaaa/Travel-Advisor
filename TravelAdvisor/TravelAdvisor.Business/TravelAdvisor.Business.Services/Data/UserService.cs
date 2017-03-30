@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Bytes2you.Validation;
 using TravelAdvisor.Business.Data.Contracts;
 using TravelAdvisor.Business.Models.Trips;
 using TravelAdvisor.Business.Models.Users;
@@ -26,9 +27,16 @@ namespace TravelAdvisor.Business.Services.Data
 
 		public void AddTripToWishlist(Trip tripToAdd, string userId)
 		{
-			var user = this.regularUserRepository.GetById(userId);
+			Guard.WhenArgument(tripToAdd, "tripToAdd").IsNull().Throw();
+			Guard.WhenArgument(userId, "userId").IsNullOrEmpty().Throw();
 
-			user.Trips.Add(tripToAdd);
+			using (var uow = this.unitOfWork)
+			{
+				var user = this.regularUserRepository.GetById(userId);
+				user.Trips.Add(tripToAdd);
+
+				uow.SaveChanges();
+			}
 		}
 	}
 }
