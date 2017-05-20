@@ -6,6 +6,7 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
     public class AdministrationController : Controller
     {
         // GET: Admin/Administration
+        [HttpGet]
         public ActionResult Index()
         {
             return View();

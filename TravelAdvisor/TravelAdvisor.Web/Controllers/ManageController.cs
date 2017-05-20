@@ -81,7 +81,7 @@ namespace TravelAdvisor.Web.Controllers
 
 			if (User.IsInRole("RegularUser") && model.UserTrips == null)
 			{
-				var userTrips = userService.GetUserTrips(userId);
+				var userTrips = this.userService.GetUserTrips(userId);
 
 				var userTripsModel = new TripsListViewModel();
 
@@ -101,7 +101,7 @@ namespace TravelAdvisor.Web.Controllers
 			return View(model);
         }
 
-		//Post /Manage
+		//POST /Manage
 		public ActionResult AddToWishList(int id)
 		{
 			var model = new IndexViewModel();
@@ -111,7 +111,7 @@ namespace TravelAdvisor.Web.Controllers
 			this.userService.AddTripToWishlist(tripToService, userId);
 
 			TripsListViewModel userTripsModel = new TripsListViewModel();
-			var userTrips = userService.GetUserTrips(userId);
+			var userTrips = this.userService.GetUserTrips(userId);
 
 			List<TripItemViewModel> allTrips = new List<TripItemViewModel>();
 

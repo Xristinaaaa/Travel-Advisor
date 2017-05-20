@@ -8,6 +8,6 @@
 		public const int DestinationsBatchIncrease = 3;
 
 		// Admin
-		public const string defaultDestinationUrl = "https://pbs.twimg.com/profile_images/515991247077789696/f37XqNDK.jpeg";
+		public const string defaultImageUrl = "https://vignette1.wikia.nocookie.net/bokunoheroacademia/images/d/d5/NoPicAvailable.png/revision/latest?cb=20160326222204";
 	}
 }

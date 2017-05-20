@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Bytes2you.Validation;
 using TravelAdvisor.Business.Common.Constants;
 using TravelAdvisor.Business.Models.Destinations;
@@ -24,20 +23,21 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
 		}
 
 		// GET: Admin/Destinations
+        [HttpGet]
 		public ActionResult Index()
         {
             return View();
         }
 
-		// GET: Admin/Destinations/Create
-		[HttpGet]
-		public ActionResult Create()
-		{
-			return this.View();
-		}
+        // GET: Admin/Destinations/Create
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return this.View();
+        }
 
-		// Post: Admin/Destinations/Create
-		[HttpPost]
+        // POST: Admin/Destinations/Create
+        [HttpPost]
 		[ValidateAntiForgeryToken]
 		[ValidateInput(true)]
 		public ActionResult Create(DestinationViewModel newDestination)
@@ -62,7 +62,7 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
 
 			if (newDestination.ImageUrl == null && newDestination.Image == null)
 			{
-				destinationToAdd.ImageUrl = ControllersConstants.defaultDestinationUrl;
+				destinationToAdd.ImageUrl = ControllersConstants.defaultImageUrl;
 			}
 
 			this.destinationService.AddDestination(destinationToAdd);

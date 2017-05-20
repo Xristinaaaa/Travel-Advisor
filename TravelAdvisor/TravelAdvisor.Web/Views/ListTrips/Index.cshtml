@@ -10,9 +10,13 @@
 <div class="allTrips">
 	<h2 class="heading">Discover all trips</h2>
 	<div class="container">
-		@if (Model.Trips != null)
+		@if (Model.Trips.Count() > 0)
 		{
 			@Html.DisplayFor(c => Model)
-		}
+        }
+        else
+        {
+            <h2>No trips found</h2>
+        }
 	</div>
 </div>

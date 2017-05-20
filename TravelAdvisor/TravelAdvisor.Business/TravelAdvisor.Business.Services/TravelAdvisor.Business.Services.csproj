@@ -98,11 +98,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Contracts\ICruiseService.cs" />
     <Compile Include="Data\Contracts\IDestinationService.cs" />
     <Compile Include="Data\Contracts\IImageService.cs" />
     <Compile Include="Data\Contracts\IRegistrationService.cs" />
     <Compile Include="Data\Contracts\ITripService.cs" />
     <Compile Include="Data\Contracts\IUserService.cs" />
+    <Compile Include="Data\CruiseService.cs" />
     <Compile Include="Data\DestinationService.cs" />
     <Compile Include="Data\ImageService.cs" />
     <Compile Include="Data\RegistrationService.cs" />

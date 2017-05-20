@@ -23,12 +23,12 @@ namespace TravelAdvisor.Web.Controllers
 			this.destinationService = destinationService;
 		}
 
-		// Get: /
+		// GET: /
 		public ActionResult Index()
 		{
-			if (destinationService.GetAllDestinations().ToList().Count() > 0)
+			if (this.destinationService.GetAllDestinations().ToList().Count() > 0)
 			{
-				var destinations = destinationService.GetDestinations(0, ControllersConstants.ItemsPerPage)
+				var destinations = this.destinationService.GetDestinations(0, ControllersConstants.ItemsPerPage)
 					.Where(d => d.IsDeleted == false)
 					.ProjectTo<DestinationItemViewModel>()
 					.OrderBy(x=>x.Country)
@@ -44,11 +44,11 @@ namespace TravelAdvisor.Web.Controllers
 			}
 		}		
 
-		// Post: /
+		// POST: /
 		[HttpPost]
 		public ActionResult GetDestinations()
 		{
-			var moreDestinations = destinationService.GetDestinations(0, destinationsCount + ControllersConstants.DestinationsBatchIncrease)
+			var moreDestinations = this.destinationService.GetDestinations(0, destinationsCount + ControllersConstants.DestinationsBatchIncrease)
 					.Where(d => d.IsDeleted == false)
 					.ProjectTo<DestinationItemViewModel>()
 					.ToList();

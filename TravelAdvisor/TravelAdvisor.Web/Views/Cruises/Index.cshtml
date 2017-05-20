@@ -1,0 +1,22 @@
+﻿@model TravelAdvisor.Web.Models.Cruises.CruisesListViewModel
+@{
+    ViewBag.Title = "All cruises";
+}
+
+@section styles {
+    @Styles.Render("~/Content/trips")
+}
+
+<div class="allCruises">
+    <h2 class="heading">Discover all cruises</h2>
+    <div class="container">
+        @if (Model.Cruises.Count() > 0)
+        {
+            @Html.DisplayFor(c => Model)
+        }
+        else
+        {
+            <h2>No cruises found</h2>
+        }
+    </div>
+</div>

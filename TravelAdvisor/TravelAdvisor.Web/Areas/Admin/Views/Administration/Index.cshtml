@@ -1,5 +1,5 @@
 ﻿@{
-	ViewBag.Title = "Admin";
+	ViewBag.Title = "Administration";
 }
 
 @section styles {
@@ -26,7 +26,7 @@
 					<li class="dropdown-toggle col-md-6">
 						<span>Cruises</span>
 						<ul class="dropdown-menu" role="menu">
-							<li>@Html.ActionLink("Create cruise", "", "", null, new { area = "Admin", Href = "" })</li>
+							<li>@Html.ActionLink("Create cruise", "Create", "Cruises", null, new { area = "Admin", Href = "/Admin/Cruises/Create" })</li>
 						</ul>
 					</li>
 					<li class="dropdown-toggle col-md-6">

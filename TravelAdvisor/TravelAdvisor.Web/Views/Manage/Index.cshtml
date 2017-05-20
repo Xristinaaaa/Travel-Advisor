@@ -1,6 +1,6 @@
 ﻿@model TravelAdvisor.Web.Models.Manage.IndexViewModel
 @{
-	ViewBag.Title = "Manage";	
+	ViewBag.Title = "Profile";	
 }
 
 @section styles {
@@ -12,7 +12,7 @@
     <div>
             @if (Model.HasPassword)
             {
-                @Html.ActionLink("Change your password", "ChangePassword", "Manage")
+                @Html.ActionLink("Change my password", "ChangePassword", "Manage", new { @class= "pull-right" })
             }
             else
             {
@@ -23,8 +23,10 @@
 
 @if (User.IsInRole("RegularUser"))
 {
+    <h1 class="heading">My wishlist</h1>
 	if (Model.UserTrips.Trips != null)
 	{
+        <p class="heading">Favourite trips: </p>
 		foreach (var item in Model.UserTrips.Trips)
 		{
 			<div class="flex">

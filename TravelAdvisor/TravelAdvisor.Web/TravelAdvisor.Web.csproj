@@ -271,11 +271,14 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdministrationController.cs" />
     <Compile Include="Areas\Admin\Controllers\Base\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CruisesController.cs" />
     <Compile Include="Areas\Admin\Controllers\DestinationsController.cs" />
     <Compile Include="Areas\Admin\Controllers\TripsController.cs" />
+    <Compile Include="Areas\Admin\Models\Cruises\CruiseViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Destinations\DestinationViewModel.cs" />
     <Compile Include="Areas\Admin\Models\Trips\TripViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CruisesController.cs" />
     <Compile Include="Controllers\ErrorPagesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -287,6 +290,8 @@
     <Compile Include="Models\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\Account\ForgotViewModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
+    <Compile Include="Models\Cruises\CruiseItemViewModel.cs" />
+    <Compile Include="Models\Cruises\CruisesListViewModel.cs" />
     <Compile Include="Models\Destinations\DestinationItemViewModel.cs" />
     <Compile Include="Models\Destinations\DestinationsListViewModel.cs" />
     <Compile Include="Models\Manage\ChangePasswordViewModel.cs" />
@@ -300,6 +305,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\cruiseLines.txt" />
+    <Content Include="App_Data\departurePorts.txt" />
+    <Content Include="App_Data\ships.txt" />
     <Content Include="Content\Admin\Views\Administration\administration.css" />
     <Content Include="Content\Admin\Views\common.css" />
     <Content Include="Content\External\Bootstrap\bootstrap.css" />
@@ -392,6 +400,7 @@
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Areas\Admin\Views\Cruises\Create.cshtml" />
     <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -457,10 +466,10 @@
     <Content Include="Views\ErrorPages\Page404.cshtml" />
     <Content Include="Views\ErrorPages\Page400.cshtml" />
     <Content Include="Views\ErrorPages\Page500.cshtml" />
+    <Content Include="Views\Cruises\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CruisesListViewModel.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Areas\Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

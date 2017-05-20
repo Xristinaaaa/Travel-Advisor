@@ -1,0 +1,130 @@
+﻿@model TravelAdvisor.Web.Areas.Admin.Models.Cruises.CruiseViewModel
+@{
+    ViewBag.Title = "Create cruise";
+}
+
+@section styles {
+    @Styles.Render("~/Content/Admin/Views/common.css")
+}
+
+<section id="createDescription" class="col-md-4">
+    @using (Html.BeginForm("Create", "Cruises", FormMethod.Post, new { role = "form", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-box col-md-12">
+            <div class="form-top">
+                <div class="form-top-left">
+                    <h3>Create Cruise</h3>
+                </div>
+            </div>
+            <div class="form-bottom">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.DeparturePort, htmlAttributes: new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-12">
+                        @(Html.Kendo().DropDownList()
+                              .Name("departurePort")
+                              .Events(e => e.Change("changePort"))
+                              .BindTo((List<string>)this.ViewBag.Ports)
+                              .HtmlAttributes(new { @class = "control-label" })
+                        )
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.CruiseLine, htmlAttributes: new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-12">
+                        @(Html.Kendo().DropDownList()
+                              .Name("cruiseLine")
+                              .Events(e => e.Change("changeLine"))
+                              .BindTo((List<string>)this.ViewBag.Lines)
+                              .HtmlAttributes(new { @class = "control-label" })
+                        )
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.CruiseShip, htmlAttributes: new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-12">
+                        @(Html.Kendo().DropDownList()
+                              .Name("cruiseShip")
+                              .Events(e => e.Change("changeShip"))
+                              .BindTo((List<string>)this.ViewBag.Ships)
+                              .HtmlAttributes(new { @class = "control-label" })
+                        )
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
+                        @Html.TextAreaFor(model => model.Description, 2, 45, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", placeholder = "$" } })
+                        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.FreePlaces, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.FreePlaces, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FreePlaces, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label" })
+                        @Html.Kendo().DateTimePickerFor(model => model.StartDate).HtmlAttributes(new { @class = "picker" })
+                        @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label" })
+                        @Html.Kendo().DateTimePickerFor(model => model.EndDate).HtmlAttributes(new { @class = "picker" })
+                        @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.LabelFor(model => model.ImageUrl, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.ImageUrl, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <div class="col-md-12">
+                        @Html.Label("Or", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Image, new { type = "file" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="submit" value="Create" class="btn btn-create" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</section>
+
+@section Scripts {
+    <script>
+		function changeShip() {
+            var value = $("#cruiseShip").data("kendoDropDownList");
+        };
+
+        function changeLine() {
+            var value = $("#cruiseLine").data("kendoDropDownList");
+        };
+
+        function changePort() {
+            var value = $("#departurePort").data("kendoDropDownList");
+        }
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

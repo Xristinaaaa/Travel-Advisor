@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using AutoMapper.QueryableExtensions;
 using Bytes2you.Validation;
 using TravelAdvisor.Business.Models.Trips;
 using TravelAdvisor.Business.Services.Data.Contracts;
@@ -11,6 +9,7 @@ using TravelAdvisor.Web.Models.Trips;
 
 namespace TravelAdvisor.Web.Controllers
 {
+    [Authorize]
     public class ListTripsController : Controller
     {
 		private ITripService tripService;
@@ -25,33 +24,28 @@ namespace TravelAdvisor.Web.Controllers
 			this.tripService = tripService;
 		}
 
-		// GET: Trips
+		// GET: ListTrips
+        [HttpGet]
 		public ActionResult Index()
 		{
-			if (tripService.GetAllTrips().ToList().Count() > 0)
+            var tripsModel = new TripsListViewModel();
+            List<TripItemViewModel> tripsToAdd = new List<TripItemViewModel>();
+
+            if (this.tripService.GetAllTrips().ToList().Count() > 0)
 			{
-				var trips = tripService.GetAllTrips()
-					.Where(d => d.IsDeleted == false && d.FreePlaces > 0)
+				var trips = this.tripService.GetAllTrips()
+					.Where(t => t.IsDeleted == false && t.FreePlaces > 0)
 					.ToList();
-
-				var tripsModel = new TripsListViewModel();
-
-				List<TripItemViewModel> tripsToAdd = new List<TripItemViewModel>();
 
 				foreach (var item in trips)
 				{
 					TripItemViewModel trip = this.mappingService.Map<Trip, TripItemViewModel>(item);
 					tripsToAdd.Add(trip);
 				}
-
-				tripsModel.Trips = tripsToAdd;
-
-				return this.View(tripsModel);
 			}
-			else
-			{
-				return this.View();
-			}
-		}
+
+            tripsModel.Trips = tripsToAdd;
+            return this.View(tripsModel);
+        }
     }
 }

@@ -5,6 +5,7 @@ using AutoMapper;
 using TravelAdvisor.Business.Models.Destinations;
 using TravelAdvisor.Business.Models.Trips;
 using TravelAdvisor.Web.App_Start.AutoMapper;
+using TravelAdvisor.Business.Common.Constants;
 
 namespace TravelAdvisor.Web.Areas.Admin.Models.Trips
 {
@@ -14,7 +15,7 @@ namespace TravelAdvisor.Web.Areas.Admin.Models.Trips
 
 		[DataType(DataType.Text)]
 		[Required]
-		[StringLength(10000, ErrorMessage = "Description name must be at least {2} characters long.", MinimumLength = 5)]
+		[StringLength(ValidationConstants.MaxTripDescriptionLength, ErrorMessage = "Description name must be at least {2} characters long.", MinimumLength = ValidationConstants.MinTripDescriptionLength)]
 		public string Description { get; set; }
 
 		public HttpPostedFileBase ImagePath { get; set; }

@@ -1,24 +1,16 @@
 ﻿/* Common */
-html, main {
-    height: 100%;
-}
-
 main {
     background: url("../../../Images/Shared/sign.png");
     background-size: cover;
     background-repeat: no-repeat;
-	min-height: 100%;
+    height:auto;
     float: left;
     position: relative;
 }
 
-.body-content {
-    padding-top: 50px;
-}
-
 /* Form */
 .form-box {
-	margin-top: 70px;
+	margin-top: 140px;
 }
 
 .form-top {
@@ -191,6 +183,7 @@ textarea.form-control:focus {
 	font-size: 15px;
 	text-align: center
 }
+
 .text-signup a {
 	color: #A6D305;
 	text-decoration: none;

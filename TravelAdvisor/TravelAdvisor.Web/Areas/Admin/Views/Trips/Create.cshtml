@@ -1,5 +1,4 @@
 ﻿@model TravelAdvisor.Web.Areas.Admin.Models.Trips.TripViewModel
-@using TravelAdvisor.Business.Models.Destinations
 @{
 	ViewBag.Title = "Create trip";
 }
@@ -35,21 +34,21 @@
 				<div class="form-group">
 					<div class="col-md-12">
 						@Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
-						@Html.TextAreaFor(model => model.Description, 2, 45, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.TextAreaFor(model => model.Description, 2, 45, new { htmlAttributes = new { @class = "form-control", placeholder = "Describe your trip" } })
 						@Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-md-12">
 						@Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label" })
-						@Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", placeholder = "$"} })
 						@Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-md-12">
 						@Html.LabelFor(model => model.Accomodation, htmlAttributes: new { @class = "control-label" })
-						@Html.TextBoxFor(model => model.Accomodation, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.TextBoxFor(model => model.Accomodation, new { htmlAttributes = new { @class = "form-control", placeholder = "Hotel/Hostel"} })
 						@Html.ValidationMessageFor(model => model.Accomodation, "", new { @class = "text-danger" })
 					</div>
 				</div>

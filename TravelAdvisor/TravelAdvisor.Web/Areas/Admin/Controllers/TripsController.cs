@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Bytes2you.Validation;
 using TravelAdvisor.Business.Common.Constants;
@@ -28,20 +26,18 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
 			this.tripService = tripService;
 			this.destinationService = destinationService;
 		}
-
-		// GET: Admin/Trips
-		public ActionResult Index()
-		{
-			return View();
-		}
-
-		// GET: Admin/Trips/Create
-		[HttpGet]
+        // GET: Admin/Trips
+        public ActionResult Index()
+        {
+            return View();
+        }
+        // GET: Admin/Trips/Create
+        [HttpGet]
 		public ActionResult Create()
 		{
 			var countries = new List<string>();
 
-			foreach (var item in destinationService.GetAllDestinations().ToList())
+			foreach (var item in this.destinationService.GetAllDestinations().ToList())
 			{
 				countries.Add(item.Country);
 			}
@@ -50,7 +46,7 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
 			return this.View();
 		}
 
-		// Post: Admin/Trips/Create
+		// POST: Admin/Trips/Create
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		[ValidateInput(true)]
@@ -60,7 +56,7 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
 			{
 				var countries = new List<string>();
 
-				foreach (var item in destinationService.GetAllDestinations().ToList())
+				foreach (var item in this.destinationService.GetAllDestinations().ToList())
 				{
 					countries.Add(item.Country);
 				}
@@ -89,7 +85,7 @@ namespace TravelAdvisor.Web.Areas.Admin.Controllers
 
 			if (newTrip.ImageUrl == null && newTrip.ImagePath == null)
 			{
-				tripToAdd.ImageUrl = ControllersConstants.defaultDestinationUrl;
+				tripToAdd.ImageUrl = ControllersConstants.defaultImageUrl;
 			}
 
 			this.tripService.AddTrip(tripToAdd);

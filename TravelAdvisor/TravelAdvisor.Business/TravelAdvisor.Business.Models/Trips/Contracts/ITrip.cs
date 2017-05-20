@@ -19,8 +19,9 @@ namespace TravelAdvisor.Business.Models.Trips.Contracts
 		string Description { get; set; }
 
 		string ImageUrl { get; set; }
+        string ImagePath { get; set; }
 
-		string Accomodation { get; set; }
+        string Accomodation { get; set; }
 
 		decimal Price { get; set; }
 

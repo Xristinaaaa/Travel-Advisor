@@ -15,8 +15,9 @@ namespace TravelAdvisor.Business.Models.Cruises.Contracts
 		string Description { get; set; }
 
 		string ImageUrl { get; set; }
+        string ImagePath { get; set; }
 
-		decimal Price { get; set; }
+        decimal Price { get; set; }
 
 		DateTime StartDate { get; set; }
 

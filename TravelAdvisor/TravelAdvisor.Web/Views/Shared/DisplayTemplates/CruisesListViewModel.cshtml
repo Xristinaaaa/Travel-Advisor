@@ -1,0 +1,26 @@
+﻿@model TravelAdvisor.Web.Models.Cruises.CruisesListViewModel
+
+
+@foreach (var item in Model.Cruises)
+{
+    <div class="flex">
+        <figure>
+            <a href="" target="_blank">
+                @if (item.ImagePath != null)
+                {
+                    <img src="@item.ImagePath" alt="">
+                }
+
+                @if (item.ImageUrl != null)
+                {
+                    <img src="@Url.Content(item.ImageUrl)" alt="">
+                }
+            </a>
+        </figure>
+
+        <h4 class="col-md-12">Cruise shop: @item.CruiseShip</h4>
+        <h4 class="col-md-12">Departure port: @item.DeparturePort</h4>
+        <h4 class="col-md-12">Price: @item.Price$</h4>
+        <h4 class="col-md-12">From: @item.StartDate.Date.ToString("dd.MM.yyy") - To: @item.EndDate.Date.ToString("dd.MM.yyy")</h4>
+    </div>
+}
