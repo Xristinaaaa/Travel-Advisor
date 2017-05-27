@@ -4,7 +4,6 @@ using AutoMapper.QueryableExtensions;
 using Bytes2you.Validation;
 using TravelAdvisor.Business.Common.Constants;
 using TravelAdvisor.Business.Services.Data.Contracts;
-using TravelAdvisor.Web.Areas.Admin.Models.Destinations;
 using TravelAdvisor.Web.Models.Destinations;
 
 namespace TravelAdvisor.Web.Controllers

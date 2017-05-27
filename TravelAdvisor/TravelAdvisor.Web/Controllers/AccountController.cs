@@ -10,7 +10,7 @@ using TravelAdvisor.Business.Identity;
 using TravelAdvisor.Business.Models.Users;
 using TravelAdvisor.Business.Services.Data.Contracts;
 using TravelAdvisor.Web.Models.Account;
-using System.EnterpriseServices;
+using System.Text;
 
 namespace TravelAdvisor.Web.Controllers
 {

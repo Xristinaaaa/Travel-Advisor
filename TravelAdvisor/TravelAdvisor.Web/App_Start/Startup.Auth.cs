@@ -53,9 +53,9 @@ namespace TravelAdvisor.Web
             //    clientId: "",
             //    clientSecret: "");
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            app.UseTwitterAuthentication(
+               consumerKey: "FEbws79yOelLJLTNH1Mb7hThB",
+               consumerSecret: "giNxvMNFDiX2xqkzgH7EQ5wlz3cBCziBXuE2d00cWZq87iF6xD");
 
             app.UseFacebookAuthentication(
                appId: "299667640444410",
