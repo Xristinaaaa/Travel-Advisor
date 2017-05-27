@@ -44,7 +44,7 @@ namespace TravelAdvisor.Web.Controllers
             }
 
             cruiseModel.Cruises = cruisesToAdd;
-            return View();
+            return this.View(cruiseModel);
         }
     }
 }

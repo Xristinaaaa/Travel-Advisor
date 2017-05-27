@@ -57,15 +57,15 @@ namespace TravelAdvisor.Web
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "299667640444410",
+               appSecret: "a71bfc2ef8435d2cfc717146c92c7b9e");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "448253119561-c7ahlubt855slupllhriq6i9t22g45sq.apps.googleusercontent.com",
+                ClientSecret = "Kmq--iUt8DsxtBCUu0jt16Ei"
+            });
         }
     }
 }

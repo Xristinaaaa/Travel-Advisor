@@ -13,36 +13,37 @@ using TravelAdvisor.Business.Services.Data.Contracts;
 using TravelAdvisor.Business.Services.Logic.Contracts;
 using TravelAdvisor.Web.Models.Manage;
 using TravelAdvisor.Web.Models.Trips;
+using System.Linq;
 
 namespace TravelAdvisor.Web.Controllers
 {
     [Authorize]
     public class ManageController : Controller
     {
-		private IUserService userService;
-		private IMappingService mappingService;
-		private IDestinationService destinationService;
-		private ITripService tripService;
+        private IUserService userService;
+        private IMappingService mappingService;
+        private IDestinationService destinationService;
+        private ITripService tripService;
 
-		public ManageController(IUserService userService, IMappingService mappingService, 
-			IDestinationService destinationService, ITripService tripService)
-		{
-			Guard.WhenArgument(userService, "User service is null.").IsNull().Throw();
-			Guard.WhenArgument(mappingService, "Mapping service is null.").IsNull().Throw();
-			Guard.WhenArgument(destinationService, "Destination service is null.").IsNull().Throw();
-			Guard.WhenArgument(tripService, "Trip service is null.").IsNull().Throw();
+        public ManageController(IUserService userService, IMappingService mappingService,
+            IDestinationService destinationService, ITripService tripService)
+        {
+            Guard.WhenArgument(userService, "User service is null.").IsNull().Throw();
+            Guard.WhenArgument(mappingService, "Mapping service is null.").IsNull().Throw();
+            Guard.WhenArgument(destinationService, "Destination service is null.").IsNull().Throw();
+            Guard.WhenArgument(tripService, "Trip service is null.").IsNull().Throw();
 
-			this.userService = userService;
-			this.mappingService = mappingService;
-			this.destinationService = destinationService;
-			this.tripService = tripService;
-		}
+            this.userService = userService;
+            this.mappingService = mappingService;
+            this.destinationService = destinationService;
+            this.tripService = tripService;
+        }
 
-		public ApplicationSignInManager SignInManager
+        public ApplicationSignInManager SignInManager
         {
             get
             {
-                 return HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+                return HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
         }
 
@@ -53,7 +54,7 @@ namespace TravelAdvisor.Web.Controllers
                 return HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
         }
-		
+
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
@@ -65,76 +66,76 @@ namespace TravelAdvisor.Web.Controllers
 
             var userId = User.Identity.GetUserId();
 
-			IndexViewModel model;
-			if (TempData["Model"] != null)
-			{
-				model = (IndexViewModel)TempData["Model"];
-			}
-			else
-			{
-				model = new IndexViewModel();
-			}
+            IndexViewModel model;
+            if (TempData["Model"] != null)
+            {
+                model = (IndexViewModel)TempData["Model"];
+            }
+            else
+            {
+                model = new IndexViewModel();
+            }
 
-			model.HasPassword = HasPassword();
-			model.Logins = await UserManager.GetLoginsAsync(userId);
-			model.BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId);
+            model.HasPassword = HasPassword();
+            model.Logins = await UserManager.GetLoginsAsync(userId);
+            model.BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId);
 
-			if (User.IsInRole("RegularUser") && model.UserTrips == null)
-			{
-				var userTrips = this.userService.GetUserTrips(userId);
+            if (User.IsInRole("RegularUser") && model.UserTrips == null)
+            {
+                var userTrips = this.userService.GetUserTrips(userId);
 
-				var userTripsModel = new TripsListViewModel();
+                var userTripsModel = new TripsListViewModel();
 
-				List<TripItemViewModel> tripsToAdd = new List<TripItemViewModel>();
+                List<TripItemViewModel> tripsToAdd = new List<TripItemViewModel>();
 
-				foreach (var item in userTrips)
-				{
-					TripItemViewModel userTrip = this.mappingService.Map<Trip, TripItemViewModel>(item);
-					tripsToAdd.Add(userTrip);
-				}
+                foreach (var item in userTrips)
+                {
+                    TripItemViewModel userTrip = this.mappingService.Map<Trip, TripItemViewModel>(item);
+                    tripsToAdd.Add(userTrip);
+                }
 
-				userTripsModel.Trips = tripsToAdd;
-				model.UserTrips = userTripsModel;
-			}
+                userTripsModel.Trips = tripsToAdd;
+                model.UserTrips = userTripsModel;
+            }
 
-			TempData.Remove("Model");
-			return View(model);
+            TempData.Remove("Model");
+            return View(model);
         }
 
-		//POST /Manage
-		public ActionResult AddToWishList(int id)
-		{
-			var model = new IndexViewModel();
-			var userId = this.User.Identity.GetUserId();
+        //POST /Manage
+        public ActionResult AddToWishList(int id)
+        {
+            var model = new IndexViewModel();
+            var userId = this.User.Identity.GetUserId();
 
-			Trip tripToService = this.tripService.FindTrip(id);
-			this.userService.AddTripToWishlist(tripToService, userId);
+            Trip tripToService = this.tripService.FindTrip(id);
+            this.userService.AddTripToWishlist(tripToService, userId);
 
-			TripsListViewModel userTripsModel = new TripsListViewModel();
-			var userTrips = this.userService.GetUserTrips(userId);
+            TripsListViewModel userTripsModel = new TripsListViewModel();
+            var userTrips = this.userService.GetUserTrips(userId);
 
-			List<TripItemViewModel> allTrips = new List<TripItemViewModel>();
+            List<TripItemViewModel> allTrips = new List<TripItemViewModel>();
 
-			foreach (var item in userTrips)
-			{
-				TripItemViewModel userTrip = this.mappingService.Map<Trip, TripItemViewModel>(item);
-				allTrips.Add(userTrip);
-			}
+            foreach (var item in userTrips)
+            {
+                TripItemViewModel userTrip = this.mappingService.Map<Trip, TripItemViewModel>(item);
+                allTrips.Add(userTrip);
+            }
 
-			userTripsModel.Trips = allTrips;
+            userTripsModel.Trips = allTrips;
 
-			model.UserTrips = userTripsModel;
+            model.UserTrips = userTripsModel;
 
-			TempData["Model"] = model;
-			return RedirectToAction("Index");
-		}
+            TempData["Model"] = model;
+            return RedirectToAction("Index");
+        }
 
-		// GET: /Manage/ChangePassword
-		public ActionResult ChangePassword()
+        // GET: /Manage/ChangePassword
+        public ActionResult ChangePassword()
         {
             return View();
         }
-		
+
         // POST: /Manage/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -152,18 +153,18 @@ namespace TravelAdvisor.Web.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return this.RedirectToAction<ManageController>(c=>c.Index(ManageMessageId.ChangePasswordSuccess));
+                return this.RedirectToAction<ManageController>(c => c.Index(ManageMessageId.ChangePasswordSuccess));
             }
             AddErrors(result);
             return View(model);
         }
-		
+
         // GET: /Manage/SetPassword
         public ActionResult SetPassword()
         {
             return View();
         }
-		
+
         // POST: /Manage/SetPassword
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -179,15 +180,67 @@ namespace TravelAdvisor.Web.Controllers
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     }
-					return this.RedirectToAction<ManageController>(c => c.Index(ManageMessageId.SetPasswordSuccess));
+                    return this.RedirectToAction<ManageController>(c => c.Index(ManageMessageId.SetPasswordSuccess));
                 }
                 AddErrors(result);
             }
-			
+
             return View(model);
         }
 
-#region Helpers
+        // GET: /Manage/ManageLogins
+        public async Task<ActionResult> ManageLogins(ManageMessageId? message)
+        {
+            ViewBag.StatusMessage =
+                message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
+                 : message == ManageMessageId.Error ? "An error has occurred."
+                 : "";
+
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            if (user == null)
+            {
+                return View("Error");
+            }
+
+            var userLogins = await UserManager.GetLoginsAsync(User.Identity.GetUserId());
+            var otherLogins = AuthenticationManager
+                .GetExternalAuthenticationTypes()
+                .Where(auth => userLogins.All(ul => auth.AuthenticationType != ul.LoginProvider)).ToList();
+
+            ViewBag.ShowRemoveButton = user.PasswordHash != null || userLogins.Count > 1;
+            return View(new ManageLoginsViewModel
+            {
+                CurrentLogins = userLogins,
+                OtherLogins = otherLogins
+            });
+        }
+
+        //
+        // POST: /Manage/LinkLogin
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LinkLogin(string provider)
+        {
+            // Request a redirect to the external login provider to link a login for the current user
+            return new AccountController.ChallengeResult(provider, Url.Action("LinkLoginCallback", "Manage"), User.Identity.GetUserId());
+        }
+
+        //
+        // GET: /Manage/LinkLoginCallback
+        public async Task<ActionResult> LinkLoginCallback()
+        {
+            var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserId());
+            if (loginInfo == null)
+            {
+                return RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
+            }
+
+            var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
+            return result.Succeeded ? RedirectToAction("ManageLogins") 
+                : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
+        }
+
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -237,6 +290,6 @@ namespace TravelAdvisor.Web.Controllers
             RemovePhoneSuccess,
             Error
         }
-#endregion
+        #endregion
     }
 }

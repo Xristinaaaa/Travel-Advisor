@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44373</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -287,6 +287,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Account\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="Models\Account\ExternalLoginListViewModel.cs" />
     <Compile Include="Models\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\Account\ForgotViewModel.cs" />
     <Compile Include="Models\Account\LoginViewModel.cs" />
@@ -298,6 +300,7 @@
     <Compile Include="Models\Manage\IndexViewModel.cs" />
     <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Account\ResetPasswordViewModel.cs" />
+    <Compile Include="Models\Manage\ManageLoginsViewModel.cs" />
     <Compile Include="Models\Manage\SetPasswordViewModel.cs" />
     <Compile Include="Models\Trips\TripItemViewModel.cs" />
     <Compile Include="Models\Trips\TripsListViewModel.cs" />
@@ -468,6 +471,10 @@
     <Content Include="Views\ErrorPages\Page500.cshtml" />
     <Content Include="Views\Cruises\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CruisesListViewModel.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

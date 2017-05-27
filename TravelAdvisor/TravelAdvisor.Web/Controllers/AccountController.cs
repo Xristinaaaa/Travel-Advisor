@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Expressions;
@@ -11,6 +10,7 @@ using TravelAdvisor.Business.Identity;
 using TravelAdvisor.Business.Models.Users;
 using TravelAdvisor.Business.Services.Data.Contracts;
 using TravelAdvisor.Web.Models.Account;
+using System.EnterpriseServices;
 
 namespace TravelAdvisor.Web.Controllers
 {
@@ -76,7 +76,97 @@ namespace TravelAdvisor.Web.Controllers
                     return View(model);
             }
         }
+
+        // POST: /Account/ExternalLogin
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult ExternalLogin(string provider, string returnUrl)
+        {
+            // Request a redirect to the external login provider
+            return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
+        }
+
+        // GET: /Account/ExternalLoginCallback
+        [AllowAnonymous]
+        public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
+        {
+            var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
+            if (loginInfo == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            // Sign in the user with this external login provider if the user already has a login
+            var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
+            switch (result)
+            {
+                case SignInStatus.Success:
+                    return string.IsNullOrEmpty(returnUrl) ? RedirectToAction("Index", "Profile") : RedirectToLocal(returnUrl);
+                case SignInStatus.LockedOut:
+                    return View("Lockout");
+                case SignInStatus.RequiresVerification:
+                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
+                case SignInStatus.Failure:
+                default:
+                    // If the user does not have an account, then prompt the user to create an account
+                    ViewBag.ReturnUrl = returnUrl;
+                    ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
+                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+            }
+        }
+
+        // POST: /Account/ExternalLoginConfirmation
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+        {
+            if (this.User.Identity.IsAuthenticated)
+            {
+                return this.RedirectToAction("Index", "Manage");
+            }
+
+            if (this.ModelState.IsValid)
+            {
+                // Get the information about the user from the external login provider
+                var info = await this.AuthenticationManager.GetExternalLoginInfoAsync();
+                if (info == null)
+                {
+                    return this.View("ExternalLoginFailure");
+                }
+                
+                ApplicationUser user = this.registrationService.CreateApplicationUser(model.Email);
+                var createResult = await UserManager.CreateAsync(user);
+				var addToRoleResult = await UserManager.AddToRoleAsync(user.Id, "RegularUser");
+
+                if (createResult.Succeeded)
+                {
+                    createResult = await UserManager.AddLoginAsync(user.Id, info.Login);
+                    if (createResult.Succeeded)
+                    {
+                        await this.UserManager.AddToRoleAsync(user.Id, "User");
+                        this.registrationService.CreateRegularUser(user.Id);
+                        await this.SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                        return string.IsNullOrEmpty(returnUrl) ? RedirectToAction("Index", "Profile") : RedirectToLocal(returnUrl);
+                    }
+                }
+
+                this.AddErrors(createResult);
+            }
+
+            this.ViewBag.ReturnUrl = returnUrl;
+            return this.View(model);
+        }
         
+        // GET: /Account/ExternalLoginFailure
+        [AllowAnonymous]
+        public ActionResult ExternalLoginFailure()
+        {
+            return View();
+        }
+
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
@@ -116,11 +206,12 @@ namespace TravelAdvisor.Web.Controllers
 			
 					return this.RedirectToAction<HomeController>(c => c.Index());
                 }
-                AddErrors(createResult);
+
+                this.AddErrors(createResult);
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return this.View(model);
         }
 		
         // GET: /Account/ForgotPassword
