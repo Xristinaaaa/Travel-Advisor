@@ -11,7 +11,7 @@ using TravelAdvisor.Web.Areas.Admin.Models.Trips;
 
 namespace TravelAdvisor.Web.Areas.Admin.Controllers
 {
-	[Authorize(Roles = "Admin")]
+	[Authorize(Roles = UserRoles.Admin)]
 	public class TripsController : BaseController
 	{
 		private ITripService tripService;

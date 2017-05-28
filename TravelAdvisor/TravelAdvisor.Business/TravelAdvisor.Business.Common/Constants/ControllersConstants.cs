@@ -1,6 +1,6 @@
 ﻿namespace TravelAdvisor.Business.Common.Constants
 {
-	public class ControllersConstants
+	public static class ControllersConstants
 	{
 		// Home page
 		public const int ItemsPerPage = 6;

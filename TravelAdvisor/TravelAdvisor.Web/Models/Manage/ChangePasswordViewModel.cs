@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using TravelAdvisor.Business.Common.Constants;
 
 namespace TravelAdvisor.Web.Models.Manage
 {
@@ -9,10 +10,11 @@ namespace TravelAdvisor.Web.Models.Manage
 		[Display(Name = "Current password")]
 		public string OldPassword { get; set; }
 
-		[Required]
-		[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-		[DataType(DataType.Password)]
-		[Display(Name = "New password")]
+        [Required]
+        [StringLength(ValidationConstants.MaxPasswordLength, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = ValidationConstants.MinPasswordLength)]
+        [RegularExpression(ValidationConstants.PasswordRegex)]
+        [DataType(DataType.Password)]
+        [Display(Name = "New password")]
 		public string NewPassword { get; set; }
 
 		[DataType(DataType.Password)]

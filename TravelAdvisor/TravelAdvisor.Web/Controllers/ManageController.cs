@@ -14,6 +14,7 @@ using TravelAdvisor.Business.Services.Logic.Contracts;
 using TravelAdvisor.Web.Models.Manage;
 using TravelAdvisor.Web.Models.Trips;
 using System.Linq;
+using TravelAdvisor.Business.Common.Constants;
 
 namespace TravelAdvisor.Web.Controllers
 {
@@ -80,7 +81,7 @@ namespace TravelAdvisor.Web.Controllers
             model.Logins = await UserManager.GetLoginsAsync(userId);
             model.BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId);
 
-            if (User.IsInRole("RegularUser") && model.UserTrips == null)
+            if (User.IsInRole(UserRoles.RegularUser) && model.UserTrips == null)
             {
                 var userTrips = this.userService.GetUserTrips(userId);
 

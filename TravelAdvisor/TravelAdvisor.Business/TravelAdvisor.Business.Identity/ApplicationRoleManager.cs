@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
+using TravelAdvisor.Business.Common.Constants;
 using TravelAdvisor.Business.Data;
 
 namespace TravelAdvisor.Business.Identity
@@ -18,16 +19,13 @@ namespace TravelAdvisor.Business.Identity
 		{
 			var roleManager = new ApplicationRoleManager(new RoleStore<IdentityRole>(context.Get<TravelAdvisorDbContext>()));
 
-			const string RegularUserRole = "RegularUser";
-			const string AdminRole = "Admin";
-
 			if (roleManager.Roles.Any())
 			{
 				return roleManager;
 			}
-
-			roleManager.Create(new IdentityRole(RegularUserRole));
-			roleManager.Create(new IdentityRole(AdminRole));
+            
+			roleManager.Create(new IdentityRole(UserRoles.RegularUser));
+			roleManager.Create(new IdentityRole(UserRoles.Admin));
 
 			return roleManager;
 		}

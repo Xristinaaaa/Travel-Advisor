@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\ControllersConstants.cs" />
+    <Compile Include="Constants\UserRoles.cs" />
     <Compile Include="Constants\ValidationConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

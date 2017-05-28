@@ -10,7 +10,7 @@ using TravelAdvisor.Business.Identity;
 using TravelAdvisor.Business.Models.Users;
 using TravelAdvisor.Business.Services.Data.Contracts;
 using TravelAdvisor.Web.Models.Account;
-using System.Text;
+using TravelAdvisor.Business.Common.Constants;
 
 namespace TravelAdvisor.Web.Controllers
 {
@@ -96,13 +96,13 @@ namespace TravelAdvisor.Web.Controllers
             {
                 return RedirectToAction("Login");
             }
-
+            
             // Sign in the user with this external login provider if the user already has a login
             var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
             switch (result)
             {
                 case SignInStatus.Success:
-                    return string.IsNullOrEmpty(returnUrl) ? RedirectToAction("Index", "Profile") : RedirectToLocal(returnUrl);
+                    return string.IsNullOrEmpty(returnUrl) ? RedirectToAction("Index", "Manage") : RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -137,19 +137,19 @@ namespace TravelAdvisor.Web.Controllers
                 }
                 
                 ApplicationUser user = this.registrationService.CreateApplicationUser(model.Email);
-                var createResult = await UserManager.CreateAsync(user);
-				var addToRoleResult = await UserManager.AddToRoleAsync(user.Id, "RegularUser");
+                var createResult = await UserManager.CreateAsync(user, model.Password);
+				var addToRoleResult = await UserManager.AddToRoleAsync(user.Id, UserRoles.RegularUser);
 
                 if (createResult.Succeeded)
                 {
                     createResult = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (createResult.Succeeded)
                     {
-                        await this.UserManager.AddToRoleAsync(user.Id, "User");
+                        await this.UserManager.AddToRoleAsync(user.Id, UserRoles.RegularUser);
                         this.registrationService.CreateRegularUser(user.Id);
                         await this.SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-                        return string.IsNullOrEmpty(returnUrl) ? RedirectToAction("Index", "Profile") : RedirectToLocal(returnUrl);
+                        return string.IsNullOrEmpty(returnUrl) ? RedirectToAction("Index", "Manage") : RedirectToLocal(returnUrl);
                     }
                 }
 
@@ -184,7 +184,7 @@ namespace TravelAdvisor.Web.Controllers
             {
 				if (model.UserRole == null)
 				{
-					model.UserRole = "RegularUser";
+					model.UserRole = UserRoles.RegularUser;
 				}
 
 				ApplicationUser user = this.registrationService.CreateApplicationUser(model.Email);
@@ -193,11 +193,11 @@ namespace TravelAdvisor.Web.Controllers
 
                 if (createResult.Succeeded && addToRoleResult.Succeeded)
                 {
-					if (model.UserRole == "RegularUser")
+					if (model.UserRole == UserRoles.RegularUser)
 					{
 						this.registrationService.CreateRegularUser(user.Id);
 					}
-					else if (model.UserRole == "Admin")
+					else if (model.UserRole == UserRoles.Admin)
 					{
 						this.registrationService.CreateAdmin(user.Id);
 					}

@@ -24,5 +24,5 @@ namespace TravelAdvisor.Business.Identity
 		{
 			return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
 		}
-	}
+    }
 }

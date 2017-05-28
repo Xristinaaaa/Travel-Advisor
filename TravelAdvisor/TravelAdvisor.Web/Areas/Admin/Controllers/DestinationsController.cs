@@ -9,7 +9,7 @@ using TravelAdvisor.Web.Areas.Admin.Models.Destinations;
 
 namespace TravelAdvisor.Web.Areas.Admin.Controllers
 {
-	[Authorize(Roles = "Admin")]
+	[Authorize(Roles = UserRoles.Admin)]
 	public class DestinationsController : BaseController
 	{
 		private IDestinationService destinationService;
